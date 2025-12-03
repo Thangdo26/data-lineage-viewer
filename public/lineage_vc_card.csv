@@ -1,0 +1,720 @@
+notebook_name,source_table,source_type,destination_table,destination_type
+./dw_card/dw_card_customer_dim.ipynb,,,dw_cms_customer_address (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_customer_dim.ipynb,,,dw_card_customer_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_txn_by_customers_fct.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_card_txn_by_customers_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_txn_by_customers_fct.ipynb,process_acct_mapping_channel_orig (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_txn_by_customers_fct.ipynb,dw_card_txn_by_customers_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_crd_debt (vc_cms.db),PARQUET,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_crd_debt_payment (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_opr_operation (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_crd_payment (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,dw_vcas_application_branch_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,bo_crd_invoice_payment (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_payment_fct_daily.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,dw_coll_full_invoice_account_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,bo_fcl_cycle_counter (vc_cms.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,bo_cst_cfc_periodic_mad (vc_cms.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,ma_loginrecord (vc_osystem.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,ma_account (vc_osystem.db),PARQUET,,
+./dw_card/dw_coll_full_invoice_account_fct.ipynb,ma_profile (vc_osystem.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_com_flexible_data (vc_cms.db),PARQUET,dw_instant_card_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_instant_card_dim.ipynb,bo_com_flexible_field (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_iss_card_number (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_app_object (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_app_application (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_iss_card (vc_cms.db),PARQUET,,
+./dw_card/dw_instant_card_dim.ipynb,bo_iss_card_instance (vc_cms.db),PARQUET,,
+./dw_card/pro_get_tmp_max_card_invoice_seq.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_max_card_invoice_seq (vc_data_dwh.db),PARQUET
+./dw_card/pro_get_tmp_max_card_invoice_seq.ipynb,,,tmp_max_card_invoice_seq_backup (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct.ipynb,tmp_gl_invoice_aging_period_after_eod (vc_data_dwh.db),PARQUET,dw_card_invoice_fct_tmp (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct.ipynb,bo_fcl_cycle_counter (vc_cms.db),PARQUET,dw_card_invoice_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct.ipynb,bo_com_flexible_data (vc_cms.db),PARQUET,,
+./dw_card/dw_card_invoice_fct.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct.ipynb,pro_acc_total_bal_start_of_day (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct.ipynb,pro_acc_daily_mad (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct.ipynb,pro_acc_event (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge.ipynb,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET,dw_card_invoice_fct_merge_eod (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct_merge.ipynb,dw_card_invoice_fct_tmp (vc_data_dwh.db),PARQUET,dw_card_invoice_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct_merge.ipynb,tmp_gl_invoice_aging_period_after_eod (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_product_dim.ipynb,bo_prd_attribute_value (vc_cms.db),PARQUET,dw_card_product_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_product_dim.ipynb,bo_fcl_fee_tier (vc_cms.db),PARQUET,dw_card_product_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_product_dim.ipynb,bo_prd_product (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim.ipynb,dw_product_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_product_dim.ipynb,dw_card_product_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,tmp_evt_status (vc_data_dwh.db),PARQUET
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,ma_loginrecord (vc_osystem.db),PARQUET,tmp_write_off_account (vc_data_dwh.db),PARQUET
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,ma_account (vc_osystem.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,ma_profile (vc_osystem.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,tmp_evt_status (vc_data_dwh.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,dw_account_balance_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,bo_scr_bucket (vc_cms.db),PARQUET,,
+./dw_card/rpt_pd_minus_4_cscore_prc.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_instant_card_sms_fct.ipynb,,,dw_instant_card_sms_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_limitinfo (vc_osystem.db),PARQUET,dw_kredivo_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_custidentity (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_loantransinfo (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_loanrepaymentschedule (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_loandetail (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_loanscheme (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_loaninfo (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,dw_write_off_krevo_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_purpcode (vc_osystem.db),PARQUET,,
+./dw_card/dw_kredivo_loan_fct.ipynb,vlgwc_depttrading (vc_osystem.db),PARQUET,,
+./dw_card/tmp_write_off_account.ipynb,bo_evt_status_log (vc_cms.db),PARQUET,tmp_evt_status (vc_data_dwh.db),PARQUET
+./dw_card/tmp_write_off_account.ipynb,tmp_evt_status (vc_data_dwh.db),PARQUET,tmp_write_off_account (vc_data_dwh.db),PARQUET
+./dw_card/tmp_write_off_account.ipynb,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_write_off_account.ipynb,bo_scr_bucket (vc_cms.db),PARQUET,,
+./dw_card/tmp_write_off_account.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_tcc_cms_account_dim.ipynb,scorecard_t_tcc_list (vc_osystem.db),PARQUET,dw_tcc_cms_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_tcc_cms_account_dim.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_tcc_cms_account_dim.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_tcc_cms_account_dim.ipynb,dw_tcc_cms_account_dim_raw (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_gl_indue_overdue.ipynb,tmp_gl_invoice_aging_period_backup (vc_data_dwh.db),PARQUET,dw_account_gl_indue_overdue (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_indue_overdue.ipynb,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,dw_account_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_fct.ipynb,tmp_gl_invoice_overdue_date_backup (vc_data_dwh.db),PARQUET,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_fct.ipynb,tmp_gl_invoice_aging_period_backup (vc_data_dwh.db),PARQUET,dw_account_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_fct.ipynb,bo_acc_entry (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_acc_macros (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_opr_operation (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_opr_participant (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_com_dictionary (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_com_i18n (vc_cms.db),PARQUET,,
+./dw_card/dw_account_gl_fct.ipynb,bo_crd_debt (vc_cms.db),PARQUET,,
+./dw_card/dwa_app_object_mapping.ipynb,bo_app_application (vc_cms.db),PARQUET,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET
+./dw_card/dwa_app_object_mapping.ipynb,bo_app_object (vc_cms.db),PARQUET,,
+./dw_card/dwa_app_object_mapping.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_acc_account (vc_cms.db),PARQUET,batch_collection_tag_txn_data (vc_data_dwh.db),PARQUET
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_crd_payment (vc_cms.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_opr_operation (vc_cms.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_acq_merchant (vc_cms.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_prd_customer (vc_cms.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./dw_card/batch_collection_tag_txn_data.ipynb,bo_crd_debt (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_prd_attribute (vc_cms.db),PARQUET,dw_product_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_product_dim.ipynb,bo_prd_attribute_value (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_prd_product (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_prd_product_service (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_fcl_fee (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_fcl_fee_tier (vc_cms.db),PARQUET,,
+./dw_card/dw_product_dim.ipynb,bo_rul_mod (vc_cms.db),PARQUET,,
+./dw_card/dw_account_balance_fct_merge.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_account_balance_fct_merge.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_account_balance_fct_merge.ipynb,bo_crd_debt (vc_cms.db),PARQUET,,
+./dw_card/dw_account_balance_fct_merge.ipynb,bo_crd_debt_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_account_balance_fct_merge.ipynb,dw_account_balance_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_term_fct_prc_bk.ipynb,,,dw_account_term_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_status_fct.ipynb,bo_evt_status_log (vc_cms.db),PARQUET,dw_card_instance_status_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_status_fct.ipynb,bo_iss_card_instance (vc_cms.db),PARQUET,dw_card_state_fct (vc_data_dwh.db),PARQUET
+./dw_card/rls_balance_type_prc.ipynb,bo_com_dictionary (vc_cms.db),PARQUET,rls_balance_type (vc_data_dwh.db),PARQUET
+./dw_card/rls_balance_type_prc.ipynb,bo_com_i18n (vc_cms.db),PARQUET,,
+./dw_card/rls_balance_type_prc.ipynb,rls_balance_type_raw (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_fct.ipynb,dw_card_transaction_fct_before_merge (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_fct.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_fct.ipynb,bo_crd_debt (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct.ipynb,bo_crd_invoice_debt (vc_cms.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,bo_com_flexible_data (vc_cms.db),PARQUET,dw_card_invoice_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,bo_acc_account (vc_cms.db),PARQUET,dw_card_invoice_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,dw_card_invoice_fct_merge_eod (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,pro_acc_daily_mad (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_invoice_fct_merge_eod.ipynb,pro_acc_event (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_gl_fct_prc.ipynb,,,dw_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_cus_cid_data_stg_prc.ipynb,ptal_cus_chipiddata (vc_osystem.db),PARQUET,dw_cus_cid_data_stg (vc_data_dwh.db),PARQUET
+./dw_card/dw_cus_cid_data_stg_prc.ipynb,ma_loanapplication (vc_osystem.db),PARQUET,,
+./dw_card/dw_cus_cid_data_stg_prc.ipynb,ma_profile (vc_osystem.db),PARQUET,,
+./dw_card/dw_cus_cid_data_stg_prc.ipynb,ma_fcmsubscription (vc_osystem.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,dwa_fe_card_status_tmp (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,dw_card_dim_merge_1 (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,bo_acc_account_object (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,bo_iss_card (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,bo_iss_card_number (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim.ipynb,dwa_card_active_date_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_balance_fct.ipynb,,,dw_account_balance_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_customer_identification_dim.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,dw_customer_identification_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_customer_identification_dim.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_debt_payment.ipynb,bo_crd_debt (vc_cms.db),PARQUET,tmp_debt_payment (vc_data_dwh.db),PARQUET
+./dw_card/tmp_debt_payment.ipynb,bo_crd_debt_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_debt_payment.ipynb,bo_crd_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_debt_payment.ipynb,tmp_debt_payment (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,bo_opr_operation (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,bo_crd_debt (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,bo_com_dictionary (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,bo_com_i18n (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,fe_curr_trans (vc_cms.db),PARQUET,,
+./dw_card/dw_card_transaction_fct_before_merge.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_ka_loan_fct.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_ka_loan_fct.ipynb,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_ka_loan_fct.ipynb,dw_tcc_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_ka_loan_fct.ipynb,dw_tcc_principaldebtconversion_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_ka_loan_fct.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_ka_loan_fct.ipynb,df_dw_loan_provision_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dwa_first_transaction_date_of_card_fct_daily.ipynb,fe_curr_trans (vc_cms.db),PARQUET,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET
+./dw_card/dwa_first_transaction_date_of_card_fct_daily.ipynb,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dwa_first_transaction_date_of_card_fct_init.ipynb,fe_curr_trans (vc_cms.db),PARQUET,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET
+./dw_card/dwa_first_transaction_date_of_card_fct_init.ipynb,tmp_dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_debt_payment_1.ipynb,bo_crd_debt (vc_cms.db),PARQUET,tmp_debt_payment (vc_data_dwh.db),PARQUET
+./dw_card/tmp_debt_payment_1.ipynb,bo_crd_debt_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_debt_payment_1.ipynb,bo_crd_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_gl_prepare_invoice_age_4next_gl_date.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_gl_invoice_overdue_date_start_day (vc_data_dwh.db),PARQUET
+./dw_card/tmp_gl_prepare_invoice_age_4next_gl_date.ipynb,pro_current_card_invoice_info_tmp (vc_data_dwh.db),PARQUET,pro_current_card_invoice_info (vc_data_dwh.db),PARQUET
+./dw_card/tmp_gl_prepare_invoice_age_4next_gl_date.ipynb,,,tmp_gl_invoice_aging_period_after_eod (vc_data_dwh.db),PARQUET
+./dw_card/tmp_gl_invoice_overdue_date.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_gl_invoice_overdue_date (vc_data_dwh.db),PARQUET
+./dw_card/tmp_gl_invoice_overdue_date.ipynb,,,tmp_gl_invoice_overdue_date_backup (vc_data_dwh.db),PARQUET
+./dw_card/dwa_fe_card_status_tmp_daily.ipynb,fe_cref_tab (vc_cms.db),PARQUET,dwa_fe_card_status_tmp (vc_data_dwh.db),PARQUET
+./dw_card/Untitled1.ipynb,dw_card_loan_payment_fct_bak (vc_data_dwh.db),PARQUET,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET
+./dw_card/Untitled1.ipynb,rpt_dvml_merge_cost_center (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_balance_eod_fct.ipynb,,,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/dwa_card_active_date_fct.ipynb,fe_curr_trans (vc_cms.db),PARQUET,,
+./dw_card/dw_card_aging_period_fct.ipynb,bo_crd_aging (vc_cms.db),PARQUET,dw_card_aging_period_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_aging_period_fct.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./dw_card/pro_acc_total_bal_start_of_day.ipynb,bo_acc_balance (vc_cms.db),PARQUET,pro_acc_total_bal_start_of_day (vc_data_dwh.db),PARQUET
+./dw_card/pro_acc_total_bal_start_of_day.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_day_dim.ipynb,,,dw_day_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_payment_dim.ipynb,bo_crd_payment (vc_cms.db),PARQUET,dw_card_loan_payment_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_payment_dim.ipynb,bo_opr_operation (vc_cms.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,gl_in_stg (vc_data_dwh.db),PARQUET
+./dw_card/dw_gl_in_stg.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,rls_balance_type_raw (vc_data_dwh.db),PARQUET
+./dw_card/dw_gl_in_stg.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,tmp_dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_gl_in_stg.ipynb,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET,dw_tcc_cms_account_dim_raw (vc_data_dwh.db),PARQUET
+./dw_card/dw_gl_in_stg.ipynb,bo_scr_bucket (vc_cms.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,rls_balance_type (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_gl_in_stg.ipynb,dw_tcc_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,bo_acc_account (vc_cms.db),PARQUET,dw_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_dim.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,bo_prd_product (vc_cms.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,bo_com_array_element (vc_cms.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,dw_card_product_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_dim.ipynb,dw_product_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/pro_corecard_csore_fct.ipynb,ods_user_scorecard_risk_7_cscore_6m (vc_osystem.db),PARQUET,,
+./dw_card/dwa_fe_card_status_tmp.ipynb,fe_cref_tab (vc_cms.db),PARQUET,dwa_fe_card_status_tmp (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_dim_before_merger.ipynb,bo_iss_card_instance (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,bo_iss_card (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,bo_iss_cardholder (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,bo_iss_card_number (vc_cms.db),PARQUET,,
+./dw_card/dw_card_dim_before_merger.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/pro_acc_daily_mad.ipynb,bo_cst_cfc_periodic_mad (vc_cms.db),PARQUET,pro_acc_daily_mad (vc_data_dwh.db),PARQUET
+./dw_card/pro_acc_daily_mad.ipynb,,,pro_acc_daily_mad_back_up (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_term_dim.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,dw_account_term_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_fct.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_fct.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_fct.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_fct.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_fct.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_loan_fct.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_merge_act_al_card_loan.ipynb,bo_acc_balance (vc_cms.db),PARQUET,tmp_account_balance (vc_data_dwh.db),PARQUET
+./dw_card/dw_merge_act_al_card_loan.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_merge_act_al_card_loan.ipynb,dw_gl_day_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_merge_act_al_card_loan.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_sta.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_sta.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_transaction_sta.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/rls_balance_type.ipynb,bo_com_dictionary (vc_cms.db),PARQUET,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET
+./dw_card/rls_balance_type.ipynb,bo_com_i18n (vc_cms.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_growth_application_fct (vc_data_dwh.db),PARQUET,dw_growth_application_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_growth_application_fct_tmp (vc_data_dwh.db),PARQUET,dw_card_transaction_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_card_invoice_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_transaction_fct_tmp (vc_data_dwh.db),PARQUET,dw_card_invoice_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dw_account_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_loan_payment_fct_tmp (vc_data_dwh.db),PARQUET,dw_account_balance_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,dw_card_dim (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_card_invoice_fct_check (vc_data_dwh.db),PARQUET,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,tmp_dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,dw_card_loan_fct_tmp_8 (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data.ipynb,dw_account_gl_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_gl_fct_1 (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_balance_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_balance_fct_check (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_card_dim_raw (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,tmp_account_aging_period_end_day_check (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_card_loan_fct_tmp_8 (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_account_aging_period_end_day.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET
+./dw_card/tmp_account_aging_period_end_day.ipynb,tmp_max_card_invoice_seq (vc_data_dwh.db),PARQUET,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_product_dim-Copy1.ipynb,bo_prd_attribute_value (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,bo_fcl_fee_tier (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,bo_prd_product (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,dw_product_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,dw_card_product_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_card_product_dim-Copy1.ipynb,dw_card_product_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_account_aging_period_end_day_7h30.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_account_aging_period_end_day (vc_data_dwh.db),PARQUET
+./dw_card/tmp_account_aging_period_end_day_7h30.ipynb,tmp_max_card_invoice_seq (vc_data_dwh.db),PARQUET,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET
+./dw_card/tmp_debt_payment_daily.ipynb,bo_crd_debt (vc_cms.db),PARQUET,tmp_debt_payment (vc_data_dwh.db),PARQUET
+./dw_card/tmp_debt_payment_daily.ipynb,bo_crd_debt_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_debt_payment_daily.ipynb,bo_crd_payment (vc_cms.db),PARQUET,,
+./dw_card/tmp_debt_payment_daily.ipynb,tmp_debt_payment (vc_data_dwh.db),PARQUET,,
+./dw_card/pro_acc_event.ipynb,bo_evt_status_log (vc_cms.db),PARQUET,pro_acc_event (vc_data_dwh.db),PARQUET
+./dw_card/pro_acc_event.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/Migrate_history_data_4.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_card_loan_fct_tmp (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data_4.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data_4.ipynb,dw_card_loan_fct_tmp (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_events_fct.ipynb,bo_acc_account (vc_cms.db),PARQUET,dw_events_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_events_fct.ipynb,bo_com_dictionary (vc_cms.db),PARQUET,,
+./dw_card/dw_events_fct.ipynb,bo_com_i18n (vc_cms.db),PARQUET,,
+./dw_card/dw_events_fct.ipynb,bo_evt_status_log (vc_cms.db),PARQUET,,
+./dw_card/dw_loan_provision_fct.ipynb,,,dw_loan_provision_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_inv_overdue_dt.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_gl_invoice_overdue_date (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_gl_inv_overdue_dt.ipynb,,,tmp_gl_invoice_overdue_date_backup (vc_data_dwh.db),PARQUET
+./dw_card/dw_write_off_cms_account_dim.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_write_off_cms_account_dim.ipynb,tmp_dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_write_off_cms_account_dim.ipynb,bo_acc_balance (vc_cms.db),PARQUET,,
+./dw_card/dw_write_off_cms_account_dim.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./dw_card/dw_write_off_cms_account_dim.ipynb,tmp_import_ds_wo_stg (vc_osystem.db),PARQUET,,
+./dw_card/dw_tcc_principaldebtconversion_dim.ipynb,,,dw_tcc_principaldebtconversion_dim (vc_data_dwh.db),PARQUET
+./dw_card/tmp_loan_provision.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET
+./dw_card/tmp_loan_provision.ipynb,dw_write_off_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_loan_provision.ipynb,dw_tcc_cms_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_loan_provision.ipynb,dw_tcc_principaldebtconversion_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_loan_provision.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_loan_provision.ipynb,df_dw_loan_provision_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_acc_gl_merge_overdue_dt.ipynb,tmp_gl_invoice_overdue_date (vc_data_dwh.db),PARQUET,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET
+./dw_card/dw_acc_gl_merge_overdue_dt.ipynb,dw_account_gl_indue_overdue (vc_data_dwh.db),PARQUET,,
+./dw_card/TEST.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_2.ipynb,blacklist_check_parquet (vc_data_dwh.db),PARQUET,blacklist_check (vc_data_dwh.db),CSV
+./dw_card/Migrate_history_2.ipynb,dw_gl_fct (vc_data_dwh.db),PARQUET,dw_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_2.ipynb,dw_gl_fct_1 (vc_data_dwh.db),PARQUET,dw_account_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_2.ipynb,dw_account_gl_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_2.ipynb,dw_account_gl_fct_24 (vc_data_dwh.db),PARQUET,,
+./dw_card/tmp_gl_prepare_invoice_age_4next_gl_date_2.ipynb,tmp_gl_invoice_aging_period_after_eod (vc_data_dwh.db),PARQUET,tmp_gl_invoice_aging_period (vc_data_dwh.db),PARQUET
+./dw_card/tmp_gl_prepare_invoice_age_4next_gl_date_2.ipynb,,,tmp_gl_invoice_aging_period_backup (vc_data_dwh.db),PARQUET
+./dw_card/pro_get_tmp_max_card_invoice_seq_7h30.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,tmp_max_card_invoice_seq (vc_data_dwh.db),PARQUET
+./dw_card/pro_get_tmp_max_card_invoice_seq_7h30.ipynb,tmp_max_card_invoice_seq (vc_data_dwh.db),PARQUET,tmp_max_card_invoice_seq_back_up (vc_data_dwh.db),PARQUET
+./dw_card/pro_get_tmp_max_card_invoice_seq_7h30.ipynb,,,pro_current_card_invoice_info_tmp (vc_data_dwh.db),PARQUET
+./dw_card/pro_get_tmp_max_card_invoice_seq_7h30.ipynb,,,pro_current_card_invoice_info_back_up (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_fct_merge_term.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,dw_card_loan_fct_merge_term (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_fct_merge_term.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_fct_merge_term.ipynb,dw_card_loan_fct_merge_term (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_account_interest_rate_detail.ipynb,bo_acc_account (vc_cms.db),PARQUET,dw_account_interest_rate_detail (vc_data_dwh.db),PARQUET
+./dw_card/dw_account_interest_rate_detail.ipynb,bo_prd_attribute_value (vc_cms.db),PARQUET,,
+./dw_card/dw_account_interest_rate_detail.ipynb,bo_fcl_fee_tier (vc_cms.db),PARQUET,,
+./dw_card/dw_account_interest_rate_detail.ipynb,bo_prd_product (vc_cms.db),PARQUET,,
+./dw_card/dw_account_interest_rate_detail.ipynb,bo_prd_contract (vc_cms.db),PARQUET,,
+./dw_card/dw_card_loan_merge_interest_prc.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,gl_in_stg_tmp (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_merge_interest_prc.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dw_card_loan_fct_tmp (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_merge_interest_prc.ipynb,dw_account_balance_fct (vc_data_dwh.db),PARQUET,gl_in_stg (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_merge_interest_prc.ipynb,gl_in_stg_tmp (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/dw_card_loan_merge_interest_prc.ipynb,dw_card_loan_fct_tmp (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_merge_card_dim_first_txn.ipynb,tmp_dw_card_dim (vc_data_dwh.db),PARQUET,dw_card_dim (vc_data_dwh.db),PARQUET
+./dw_card/dw_merge_card_dim_first_txn.ipynb,tmp_save_first_last_txn_before_merge_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_merge_card_dim_first_txn.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/dw_save_first_txn_before_merge_card_dim_tiktokshop.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,tmp_save_first_last_txn_before_merge_card_dim (vc_data_dwh.db),PARQUET
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_account_gl_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_ (vc_los_cas.db),PARQUET,tmp_c_main_loan_app (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,tmp_c_crd (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_customer (vc_los_cas.db),PARQUET,tmp_c_officer (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_sub_loan (vc_los_cas.db),PARQUET,tmp_card_type_pre_application_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_person_info (vc_los_cas.db),PARQUET,card_type_pre_application_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_organization (vc_los_cas.db),PARQUET,dw_application_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_generic_parameter (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_product_type (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_loan_product (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,tmp_c_main_loan_app (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_ccsourcing (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_credit_card_detail (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_credit_card_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,tmp_c_crd (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_cas_officer_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_vcas_user_app_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,neo_gcc_scoring_response_fis (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dwa_appl_gl_object_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_appl_additionalfields_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_f1_pos_region_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_staff_target_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_employee_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_cas_user_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_application_last_first_step_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,tmp_c_officer (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_appl_collaborators_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,vcas_app_member_vw (vc_osystem.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,hrm_vw_qlhs_to_powerbi (vc_osystem.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,econtractgateway_econtracts_backup (vc_osystem.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_card_type_group_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_credit_card_type (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_card_type_sun_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_vcas_application_branch_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,tmp_dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,card_type_pre_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,tmp_card_type_pre_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_application_credit_approval_step_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_dim.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_vcas_application_branch_dim.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,dw_vcas_application_branch_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_vcas_application_branch_dim.ipynb,dw_f1_pos_region_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_vcas_application_branch_dim.ipynb,vcas_app_member_vw (vc_osystem.db),PARQUET,,
+./dw_app/dw_application_last_first_step_fct.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_last_first_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_last_first_step_fct.ipynb,dw_application_sendback_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_cas_user_dim.ipynb,f1_users (vc_los_cas.db),PARQUET,dw_cas_user_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_cas_user_dim.ipynb,f1_user_profile (vc_los_cas.db),PARQUET,dw_cas_officer_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_cas_user_dim.ipynb,f1_officer (vc_los_cas.db),PARQUET,dw_vcas_user_app_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_cas_user_dim.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_cas_user_dim.ipynb,vcas_app_member_vw (vc_osystem.db),PARQUET,,
+./dw_app/dw_cas_user_dim.ipynb,dw_employee_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_cas_user_dim.ipynb,f1_col_unit_user_mapping_mst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_cas_user_dim.ipynb,f1_col_unit_mst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_last_first_step_fct_daily.ipynb,dw_application_last_first_step_fct (vc_data_dwh.db),PARQUET,dw_application_last_first_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_last_first_step_fct_daily.ipynb,dw_application_sendback_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_last_first_step_fct_daily.ipynb,dw_application_cancel_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_last_first_step_fct_daily.ipynb,dw_application_rejection_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_last_first_step_fct_daily.ipynb,dw_appl_addi_model_autoapprove_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_sendback_fct_daily.ipynb,f1_cas_appl_sendback_vrdct (vc_los_cas.db),PARQUET,dw_application_sendback_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_sendback_fct_daily.ipynb,f1_cas_jt_appl_sendback_vrdct_rsn (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_sendback_fct_daily.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_sendback_fct_daily.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,dw_application_rejection_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_rejection_fct.ipynb,f1_jt_appl_rej_vrdct_to_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_act_hi_varinst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_act_hi_taskinst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,f1_app_rej_vrdct (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct.ipynb,dw_application_rejection_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_appl_customer_dim_stg.ipynb,,,dw_appl_customer_dim_stg (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_ccde_step_fct_init.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_ccde_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_cancel_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,dw_application_cancel_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_cancel_fct.ipynb,f1_app_canc_vrdct (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_cancel_fct.ipynb,f1_jt_cancvrdct_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_cancel_fct.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,f1_organization (vc_los_cas.db),PARQUET,dw_f1_pos_region_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_create_los_pos_region_dim.ipynb,f1_simple_contact_info (vc_los_cas.db),PARQUET,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,f1_address (vc_los_cas.db),PARQUET,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,f1_city (vc_los_cas.db),PARQUET,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,f1_area (vc_los_cas.db),PARQUET,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,region_stg (vc_los_cas.db),CSV,,
+./dw_app/dw_create_los_pos_region_dim.ipynb,dw_pos_type_dim (vc_data_dwh.db),CSV,,
+./dw_app/dw_application_reference_dim.ipynb,f1_reference_detail (vc_los_cas.db),PARQUET,dw_application_reference_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_reference_dim.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_address (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_generic_parameter (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_country (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_zip_code (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_intra_country_region (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_city (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_district (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_reference_dim.ipynb,f1_phone_number (vc_los_cas.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_growth_application_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_growth_application_fct.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_application_cancel_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,dw_card_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_growth_application_fct.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,dw_application_ccde_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_party (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_customer (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_sub_loan (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_users (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_ccde_step_fct.ipynb,f1_ccsourcing (vc_los_cas.db),PARQUET,,
+./dw_app/dw_appl_customer_dim_merge.ipynb,,,dw_appl_customer_dim (vc_data_dwh.db),PARQUET
+./dw_app/test_id_card.ipynb,,,dw_los_identification_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_los_customer_dim.ipynb,,,dw_los_customer_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_addi_model_company_info_dim.ipynb,f1_loan_app_form_data_maps (vc_los_cas.db),PARQUET,dw_appl_additionalfields_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_addi_model_company_info_dim.ipynb,f1_persistent_form_data (vc_los_cas.db),PARQUET,dw_appl_addi_model_under_writer_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_addi_model_company_info_dim.ipynb,f1_city (vc_los_cas.db),PARQUET,dw_appl_addi_model_company_info_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_ccde_step_fct_daily.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_ccde_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_los_address_dim.ipynb,,,dw_los_address_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_employee_dim.ipynb,hrm_qlrr_ho_so_nhan_vien (vc_osystem.db),PARQUET,dw_employee_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_employee_dim.ipynb,hrm_qlrr_cong_tac_vien (vc_osystem.db),PARQUET,,
+./dw_app/dw_employee_dim.ipynb,hrm_qlrr_cong_tac_vien_thirtparty (vc_osystem.db),PARQUET,,
+./dw_app/dw_employee_dim.ipynb,dw_imp_staff_target_stg (vc_osystem.db),CSV,,
+./dw_app/dw_los_identification_dim.ipynb,,,dw_los_identification_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_los_phone_number_dim.ipynb,,,dw_los_phone_number_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_los_income_detail_dim.ipynb,,,dw_los_income_detail_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_staff_target_dim.ipynb,dw_employee_dim (vc_data_dwh.db),PARQUET,dw_staff_target_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_staff_target_dim.ipynb,dw_imp_staff_target_stg (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_staff_target_dim.ipynb,dw_imp_staff_on_leave_stg (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_appl_addi_model_autoapprove_dim_merge.ipynb,dw_appl_addi_model_autoapprove_dim_tmp (vc_data_dwh.db),PARQUET,dw_appl_addi_model_autoapprove_dim_raw (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_step_fct.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,dw_application_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_step_fct.ipynb,f1_users (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct.ipynb,f1_ccsourcing (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct.ipynb,f1_party (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct.ipynb,f1_customer (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct.ipynb,f1_sub_loan (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,dw_application_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_step_fct_daily.ipynb,f1_users (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_ccsourcing (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_party (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_customer (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_step_fct_daily.ipynb,f1_sub_loan (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_kyc_step_fct_daily.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_kyc_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_kyc_step_fct_init.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_kyc_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_recommendation_step_fct_daily.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_recommendation_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/merge_to_application.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,dw_application_dim_temp (vc_data_dwh.db),PARQUET
+./dw_app/merge_to_application.ipynb,dw_application_dim_temp (vc_data_dwh.db),PARQUET,dw_application_dim (vc_data_dwh.db),PARQUET
+./dw_app/merge_to_application.ipynb,f1_credit_card_type (vc_los_cas.db),PARQUET,,
+./dw_app/merge_to_application.ipynb,de_application_form (tincard.db),PARQUET,,
+./dw_app/dw_application_recommendation_step_fct_init.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_recommendation_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,dw_application_rejection_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_jt_appl_rej_vrdct_to_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_act_hi_varinst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_act_hi_taskinst (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_app_processing_step_data (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_rejection_fct_init.ipynb,f1_app_rej_vrdct (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_credit_approval_step_fct_daily.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_credit_approval_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_credit_approval_step_fct_init.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_credit_approval_step_fct (vc_data_dwh.db),PARQUET
+./dw_app/Untitled.ipynb,,,dw_los_customer_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_sendback_fct.ipynb,f1_cas_appl_sendback_vrdct (vc_los_cas.db),PARQUET,dw_application_sendback_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_sendback_fct.ipynb,f1_cas_jt_appl_sendback_vrdct_rsn (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_sendback_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_sendback_fct.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_sendback_fct.ipynb,tmp_dw_application_sendback_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_appl_collaborators_dim.ipynb,dw_employee_dim (vc_data_dwh.db),PARQUET,dw_appl_collaborators_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_collaborators_dim.ipynb,dw_application_reference_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_application_note_fct.ipynb,f1_tbl_comment (vc_los_cas.db),PARQUET,dw_application_note_fct (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_note_fct.ipynb,f1_note_code (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_note_fct.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,,
+./dw_app/dw_application_note_fct.ipynb,f1_users (vc_los_cas.db),PARQUET,,
+./dw_app/dw_appl_addi_model_autoapprove_dim.ipynb,f1_loan_app_form_data_maps (vc_los_cas.db),PARQUET,dw_appl_addi_model_autoapprove_dim_tmp (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_addi_model_autoapprove_dim.ipynb,f1_persistent_form_data (vc_los_cas.db),PARQUET,dw_appl_addi_model_autoapprove_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_appl_addi_model_autoapprove_dim.ipynb,f1_decision_reason (vc_los_cas.db),PARQUET,,
+./dw_app/dw_appl_addi_model_autoapprove_dim.ipynb,dw_appl_addi_model_autoapprove_dim_raw (vc_data_dwh.db),PARQUET,,
+./dw_app/tmp_dw_application_sendback_fct.ipynb,dw_application_sendback_fct (vc_data_dwh.db),PARQUET,,
+./dw_app/thang_test.ipynb,f1_officer (vc_los_cas.db),PARQUET,,
+./dw_app/dw_customer_dim.ipynb,dw_card_customer_dim (vc_data_dwh.db),PARQUET,dw_customer_dim (vc_data_dwh.db),PARQUET
+./dw_app/dw_customer_dim.ipynb,dw_cms_customer_address (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_customer_dim.ipynb,dw_appl_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_customer_dim.ipynb,dw_card_type_group_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/dw_appl_customer_dim.ipynb,,,dw_appl_customer_dim (vc_data_dwh.db),PARQUET
+./dw_app/spark-warehouse/test.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./data_mart/import_Clickhouse_FCT.ipynb,dw_card_transaction_fct (vc_risk.db),PARQUET,,
+./data_mart/import_Clickhouse_DIM.ipynb,rule_monitor (vc_risk.db),PARQUET,,
+./data_mart/import_Clickhouse_FCT_monthly.ipynb,dm_card_loan_payment_month_fct (vc_risk.db),PARQUET,,
+./data_mart/dm_risk/dm_aging_bucket.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dm_aging_bucket (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_aging_bucket.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/dm_dw_account_dim.ipynb,,,dm_account_dim (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_card_loan_payment_month_fct.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dm_card_loan_payment_month_fct (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,dw_card_invoice_eod_fct (vc_data_dwh.db),PARQUET,dm_card_invoice (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,bo_cst_cfc_periodic_mad (vc_cms.db),PARQUET,,
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/dm_dw_card_invoice_fct.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/dm_card_loan_payment_fct.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dm_card_loan_payment_fct (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_appgw_carddelivery.ipynb,,,dm_appgw_carddelivery (vc_risk.db),PARQUET
+./data_mart/dm_risk/import_de_application_form.ipynb,de_application_form (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_dop_card.ipynb,dop_application_form (tincard.db),PARQUET,dwh_dop_card (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dop_card.ipynb,dop_customer_log_step (tincard.db),PARQUET,dm_dop_card (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dop_card.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop.ipynb,dop_application_form (tincard.db),PARQUET,dm_subrule_dop (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_subrule_dop.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop.ipynb,dop_blocks (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop.ipynb,dop_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop-Copy1.ipynb,application_form (tincard.db),PARQUET,dm_subrule_dop (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_subrule_dop-Copy1.ipynb,final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop-Copy1.ipynb,blocks (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_subrule_dop-Copy1.ipynb,log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,dop_application_form (tincard.db),PARQUET,dwh_dop_card_ip_1st_log (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,dop_customer_log_step (tincard.db),PARQUET,v2_dm_dop_card (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,customer_log_step (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,dwh_dop_card_ip_1st_log (vc_risk.db),PARQUET,,
+./data_mart/dm_risk/dm_dop_card_daily.ipynb,dwh_dop_card (vc_risk.db),PARQUET,,
+./data_mart/dm_risk/dm_de_rule_monitor.ipynb,,,de_rule_monitor (vc_risk.db),PARQUET
+./data_mart/dm_risk/import_Clickhouse_FCT_2.ipynb,dw_card_transaction_fct (vc_risk.db),PARQUET,,
+./data_mart/dm_risk/dop_card_rule_details.ipynb,dop_application_form (tincard.db),PARQUET,dop_card_rule_details (vc_risk.db),PARQUET
+./data_mart/dm_risk/dop_card_rule_details.ipynb,dop_customer_log_step (tincard.db),PARQUET,,
+./data_mart/dm_risk/dop_card_rule_details.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/v2_rule_monitor.ipynb,dop_application_form (tincard.db),PARQUET,rule_monitor (vc_risk.db),PARQUET
+./data_mart/dm_risk/v2_rule_monitor.ipynb,dop_customer_log_step (tincard.db),PARQUET,,
+./data_mart/dm_risk/v2_rule_monitor.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_risk/dm_aging_bucket-Copy1.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,dm_aging_bucket (vc_risk.db),PARQUET
+./data_mart/dm_risk/dm_aging_bucket-Copy1.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/import_dop_customer_app_dim.ipynb,dop_application_form (tincard.db),PARQUET,,
+./data_mart/dm_risk/import_dw_card_transaction_fct.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/import_Clickhouse_FCT.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/import_Clickhouse_dw_card_dim.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/import_Clickhouse_de_application_form.ipynb,de_application_form (tincard.db),PARQUET,,
+./data_mart/dm_risk/de_application_form.ipynb,de_application_form (tincard.db),PARQUET,,
+./data_mart/dm_risk/import_dw_card_transaction_fct-Copy1.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/import_Clickhouse_dw_card_dim-Copy1.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_details.ipynb,dop_application_form (vinfast_autoloan.db),PARQUET,vinfast_dop_rule_details (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_details.ipynb,dop_customer_log_step (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_details.ipynb,dop_shops (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_details.ipynb,dop_final_log_rules (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,daily_checkpoint_contract (vinfast_autoloan.db),PARQUET,vinfast_datamart (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,daily_checkpoint_balance (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,dop_shops (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,dop_application_form (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,datatoamber_v2 (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_datamart.ipynb,datapaybacktoamber_v1 (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_rule_all.ipynb,daily_checkpoint_contract (vinfast_autoloan.db),PARQUET,vinfast_rule_all_historical (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_rule_all.ipynb,daily_checkpoint_contract (vinfast_autoloan.db),PARQUET,vinfast_rule_all (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_rule_all.ipynb,vinfast_dop_rule_details (vc_risk.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_application.ipynb,daily_checkpoint_contract (vinfast_autoloan.db),PARQUET,vinfast_application (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_application.ipynb,dop_application_form (vinfast_autoloan.db),PARQUET,vinfast_application_historical (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_application.ipynb,orderloan_vc_vinfast (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_application.ipynb,dim_loanstatus (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_latest_stage.ipynb,vinfast_dop_rule_details (vc_risk.db),PARQUET,vinfast_dop_rule_latest_stage (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_dop_rule_latest_stage.ipynb,vinfast_application_historical (vc_risk.db),PARQUET,vinfast_dop_rule_latest_stage_historical (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_current_portfolio.ipynb,vinfast_datamart (vc_risk.db),PARQUET,vinfast_current_portfolio (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_current_portfolio.ipynb,,,vinfast_current_portfolio_historical (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_customer.ipynb,daily_checkpoint_contract (vinfast_autoloan.db),PARQUET,vinfast_customer (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_customer.ipynb,dop_application_form (vinfast_autoloan.db),PARQUET,vinfast_customer_historical (vc_risk.db),PARQUET
+./data_mart/dm_risk/vinfast/vinfast_customer.ipynb,orderloan_vc_vinfast (vinfast_autoloan.db),PARQUET,,
+./data_mart/dm_vc/rpt_outstanding_balace_4_target.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,tmp_gl_year_4_target (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/rpt_outstanding_balace_4_target.ipynb,dw_day_dim (vc_data_dwh.db),PARQUET,tmp_gl_month_4_target (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/rpt_outstanding_balace_4_target.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_outstanding_balace_4_target.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,ma_profile (vc_osystem.db),PARQUET,rpt_coll_daily_pd0_t0_pd100 (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,ma_account (vc_osystem.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,ma_loginrecord (vc_osystem.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,bo_acc_account (vc_cms.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,dw_customer_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,bo_crd_invoice (vc_cms.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,bo_fcl_cycle_counter (vc_cms.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,pro_acc_total_bal_start_of_day (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_coll_daily_pd0_t0_pd100.ipynb,pro_acc_daily_mad (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/rpt_indue_principaldebtconversion.ipynb,,,rpt_indue_principaldebtconversion (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/rpt_flash_report_daily_prc.ipynb,,,rpt_bod_growth_up_of_card_daily_fct (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_loyalty_card-Copy1.ipynb,dop_application_form (tincard.db),PARQUET,,
+./data_mart/dm_vc/hue_loyalty_card-Copy1.ipynb,dop_customer_log_step (tincard.db),PARQUET,,
+./data_mart/dm_vc/hue_loyalty_card-Copy1.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_vc/rpt_acc_checking_balance_and_interest.ipynb,,,rpt_acc_checking_balance_and_interest (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/import_dop_card.ipynb,dop_application_form (tincard.db),PARQUET,,
+./data_mart/dm_vc/import_dop_card.ipynb,dop_customer_log_step (tincard.db),PARQUET,,
+./data_mart/dm_vc/import_dop_card.ipynb,dop_final_log_rules (tincard.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,rpt_dvml_merge_cost_center (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_account_gl_daily.ipynb,dw_card_type_sun_mapping_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/test_import_mindmap_card_status.ipynb,,,mind_map_final (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,dw_card_type_sun_mapping_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,ma_loanapplication (vc_osystem.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,dw_tcc_principaldebtconversion_dim (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/import_rpt_accounting_gl_in_detail.ipynb,dw_account_interest_rate_detail (vc_data_dwh.db),PARQUET,,
+./data_mart/dm_vc/hue_base_unlock_mindmap_card.ipynb,,,mind_map_base (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_base_unlock_mindmap_card.ipynb,,,unlock_by_cic (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_dkrenew_mindmap.ipynb,,,dkthoa_renew (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_mind_map_snapshot.ipynb,,,mind_map_base (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_mind_map_snapshot.ipynb,,,unlock_by_cic (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_mind_map_snapshot.ipynb,,,dkthoa_renew (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/hue_mind_map_snapshot.ipynb,,,mind_map_final (vc_data_dwh.db),PARQUET
+./data_mart/dm_vc/mindmap_history.ipynb,,,mindmap_history (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_contract_dim.ipynb,daily_checkpoint_contract (vc_fi_data.db),PARQUET,dw_tinvay_contract_dim_tmp (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_contract_dim.ipynb,daily_checkpoint_balance (vc_fi_data.db),PARQUET,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_contract_dim.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_contract_dim.ipynb,dw_tinvay_contract_dim_tmp (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_contract_rate_dim.ipynb,daily_checkpoint_contract_rate (vc_fi_data.db),PARQUET,dw_tinvay_contract_rate_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_contract_rate_dim.ipynb,dw_tinvay_contract_rate_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_account_balance_fct.ipynb,daily_checkpoint_balance (vc_fi_data.db),PARQUET,dw_tinvay_account_balance_fct (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_loan_provision_fct.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_loan_provision_fct.ipynb,daily_checkpoint_pnl (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_loan_provision_month_fct.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_loan_provision_month_fct.ipynb,monthly_checkpoint_pnl (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_contract_debt_dim.ipynb,daily_checkpoint_contract_debt (vc_fi_data.db),PARQUET,dw_tinvay_contract_debt_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_contract_debt_dim.ipynb,dw_tinvay_contract_debt_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/rpt_tinvay_report_fct.ipynb,daily_checkpoint_dlc_report (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_transaction_fct.ipynb,daily_checkpoint_transactionlog (vc_fi_data.db),PARQUET,dw_tinvay_transaction_fct (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_loan_provision_fct_init.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,dw_tinvay_loan_provision_fct (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_loan_provision_fct_init.ipynb,daily_checkpoint_pnl (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_loan_provision_month_fct_init.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,dw_tinvay_loan_provision_month_fct (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_loan_provision_month_fct_init.ipynb,monthly_checkpoint_pnl (vc_fi_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,datatoamber_v2 (vc_fi_data.db),PARQUET,contract (dlc_data.db),PARQUET
+./dw_cash/contract_daily.ipynb,contract (dlc_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,dataprofiletoamber_v2 (vc_fi_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,product_info (dlc_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,score_info (dlc_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,orderloan (dlc_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,customer_profile_grab (dlc_data.db),PARQUET,,
+./dw_cash/contract_daily.ipynb,contract_score_fiza_v4_v5 (dlc_data.db),PARQUET,,
+./dw_cash/dw_tinvay_customer_dim_init.ipynb,datatoamber_v2 (vc_fi_data.db),PARQUET,tmp_dw_tinvay_customer_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_customer_dim_init.ipynb,dataprofiletoamber_v2 (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_customer_dim_init.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_customer_dim_daily.ipynb,datatoamber_v2 (vc_fi_data.db),PARQUET,dw_tinvay_customer_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_customer_dim_daily.ipynb,dataprofiletoamber_v2 (vc_fi_data.db),PARQUET,tmp_dw_tinvay_customer_dim (vc_data_dwh.db),PARQUET
+./dw_cash/dw_tinvay_customer_dim_daily.ipynb,dw_tinvay_contract_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_customer_dim_daily.ipynb,tmp_dw_tinvay_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_customer_dim_daily.ipynb,dw_tinvay_customer_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,collection_current (dlc_data.db),PARQUET,collection_payment_data (dlc_data.db),CSV
+./dw_cash/collection_payment_data_daily.ipynb,product_info (dlc_data.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,contract (dlc_data.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,repayment_current_by_due_number (dlc_data.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,contract_payback (dlc_data.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,contract_vc (dlc_data.db),PARQUET,,
+./dw_cash/collection_payment_data_daily.ipynb,tmp_repayment_current_by_month (dlc_data.db),PARQUET,,
+./dw_cash/Untitled.ipynb,dw_card_type_sun_mapping_dim (vc_data_dwh.db),PARQUET,,
+./dw_cash/dw_tinvay_contract_dim_BACKFILL.ipynb,daily_checkpoint_contract (vc_fi_data.db),PARQUET,,
+./dw_cash/dw_tinvay_contract_dim_BACKFILL.ipynb,daily_checkpoint_balance (vc_fi_data.db),PARQUET,,
+./dw_cash/vc_momo/matrix_tenor.ipynb,matrix_tenor (vc_fi_data.db),PARQUET,matrix_tenor (vc_risk.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor.ipynb,tmp_matrix_tenor (vc_data_dwh.db),PARQUET,tmp_matrix_tenor (vc_data_dwh.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor.ipynb,matrix_score (vc_fi_data.db),PARQUET,tmp_matrix_score (vc_data_dwh.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor.ipynb,tmp_matrix_score (vc_data_dwh.db),PARQUET,matrix_score (vc_fi_data.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor_v6.4.ipynb,matrix_tenor (vc_fi_data.db),PARQUET,tmp_matrix_tenor (vc_data_dwh.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor_v6.4.ipynb,tmp_matrix_tenor (vc_data_dwh.db),PARQUET,tmp_matrix_score (vc_data_dwh.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor_v6.4.ipynb,matrix_score (vc_fi_data.db),PARQUET,,
+./dw_cash/vc_momo/matrix_tenor_v6.4.ipynb,tmp_matrix_score (vc_data_dwh.db),PARQUET,,
+./dw_cash/vc_momo/product_matrix_ir0.ipynb,product_scheme_parquet (vc_fi_data.db),PARQUET,,
+./dw_cash/vc_momo/matrix_tenor_v6.1.ipynb,matrix_score (vc_fi_data.db),PARQUET,tmp_matrix_score (vc_data_dwh.db),PARQUET
+./dw_cash/vc_momo/matrix_tenor_v6.1.ipynb,tmp_matrix_score (vc_data_dwh.db),PARQUET,matrix_score (vc_fi_data.db),PARQUET
+./dw_cash/test/data_json.ipynb,dop_log_api (tincard.db),PARQUET,,
+./dw_webreport/dw_loan_bonds_fct_init.ipynb,tmp_dw_loan_bonds_fct (vc_data_dwh.db),CSV,dw_loan_bonds_fct (vc_data_dwh.db),PARQUET
+./dw_webreport/dw_loan_bonds_fct_daily.ipynb,etl_loan_bonds_stg (vc_osystem.db),PARQUET,dw_loan_bonds_fct (vc_data_dwh.db),PARQUET
+./dw_webreport/dw_loan_bonds_fct_daily.ipynb,dw_loan_bonds_fct (vc_data_dwh.db),PARQUET,,
+./dw_webreport/dw_loan_dp_tctd_fct_daily.ipynb,etl_loan_dp_tctd_stg (vc_osystem.db),PARQUET,dw_loan_dp_tctd_fct (vc_data_dwh.db),PARQUET
+./dw_webreport/dw_loan_dp_tctd_fct_init.ipynb,tmp_dw_loan_dp_tctd_fct (vc_data_dwh.db),CSV,dw_loan_dp_tctd_fct (vc_data_dwh.db),PARQUET
+./dw_webreport/dw_loan_bank2k_fct.ipynb,etl_loan_bank2k_stg (vc_osystem.db),PARQUET,dw_loan_bank2k_fct (vc_data_dwh.db),PARQUET
+./dw_webreport/dw_loan_bank2k_fct.ipynb,dw_loan_bank2k_fct (vc_data_dwh.db),PARQUET,,

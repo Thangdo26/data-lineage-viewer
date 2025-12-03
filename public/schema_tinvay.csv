@@ -1,0 +1,27 @@
+table_name,column_name,data_type,is_nullable,description,sample_values,business_meaning
+approval_limit_staging (dlc_data.db),haha,,NO,hello,,abc
+closed_contract (amft.db),id,string,NO,khóa chính,"1,2,3",id tự tăng
+contract (dlc_data.db),contract_id,STRING,NO,Mã hợp đồng,"FM1234,MM32234","Khóa duy nhất xác định mã hợp đồng, dùng để join"
+contract_terminate (amft.db),abc,string,NO,haha,123,meme
+v2_contract (amft.db),contract_id,VARCHAR(50),NO,Contract ID,"CTR001,CTR002",Mã hợp đồng vay
+v2_contract (amft.db),customer_id,VARCHAR(50),NO,Customer ID,"CUST001,CUST002",Mã khách hàng
+v2_contract (amft.db),loan_amount,DECIMAL(18,2),NO,Total loan amount,"5000000,10000000"
+v2_contract (amft.db),interest_rate,DECIMAL(5,2),NO,Annual interest rate,"12.5,15.0,18.5"
+v2_contract (amft.db),loan_term,INTEGER,NO,Loan term in months,"6,12,24,36",Kỳ hạn vay (tháng)
+v2_contract (amft.db),disbursement_date,DATE,NO,Loan disbursement date,"2024-01-15,2024-02-01",Ngày giải ngân
+v2_contract (amft.db),status,VARCHAR(20),NO,Contract status,"ACTIVE,CLOSED,DEFAULT",Trạng thái hợp đồng
+v2_contract (amft.db),created_by,VARCHAR(50),NO,User who created,"user123,admin456",Người tạo hợp đồng
+v2_repayment_by_mob (amft.db),contract_id,VARCHAR(50),NO,Contract unique identifier,"CTR001,CTR002,CTR003",Mã định danh duy nhất của hợp đồng vay
+v2_repayment_by_mob (amft.db),mob,INTEGER,NO,Month on book,"0,1,2,3,4,5,6",Số tháng kể từ khi giải ngân (0=tháng đầu)
+v2_repayment_by_mob (amft.db),principal_amount,DECIMAL(18,2),NO,Principal loan amount,"1000000,2000000,5000000"
+v2_repayment_by_mob (amft.db),paid_amount,DECIMAL(18,2),YES,Amount paid in this period,"500000,1000000,0"
+v2_repayment_by_mob (amft.db),dpd,INTEGER,YES,Days past due,"0,5,10,30,90",Số ngày quá hạn thanh toán
+v2_repayment_by_mob (amft.db),outstanding_balance,DECIMAL(18,2),YES,Remaining balance,"1500000,800000,0"
+v2_repayment_by_mob (amft.db),payment_status,VARCHAR(20),NO,Payment status,"PAID,UNPAID,PARTIAL",Trạng thái thanh toán của kỳ
+v2_repayment_by_mob (amft.db),created_date,TIMESTAMP,NO,Record creation date,2024-01-15 10:30:00,Ngày tạo bản ghi
+v2_repayment_by_mob (amft.db),updated_date,TIMESTAMP,YES,Last update date,2024-01-20 15:45:00,Ngày cập nhật gần nhất
+v2_repayment_current (amft.db),contract_id,VARCHAR(50),NO,Contract ID,"CTR001,CTR002",Mã hợp đồng
+v2_repayment_current (amft.db),current_balance,DECIMAL(18,2),YES,Current outstanding,"800000,1200000"
+v2_repayment_current (amft.db),next_payment_date,DATE,YES,Next payment due date,"2024-02-15,2024-03-15",Ngày đến hạn thanh toán tiếp theo
+v2_repayment_current (amft.db),last_payment_amount,DECIMAL(18,2),YES,Last payment amount,"500000,1000000"
+v2_repayment_history (amft.db),contract_id,,NO,,,

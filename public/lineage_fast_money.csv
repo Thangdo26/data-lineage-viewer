@@ -1,0 +1,182 @@
+notebook_name,source_table,source_type,destination_table,destination_type
+./repayment_by_mob_full.ipynb,v2_repayment_by_mob (amft.db),PARQUET,v2_repayment_by_mob (amft.db),PARQUET
+./outstanding-loan.ipynb,v2_repayment_current (amft.db),PARQUET,v2_dm_outstanding_loan (amft.db),PARQUET
+./outstanding-loan.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./outstanding-loan.ipynb,v2_score_provider (amft.db),PARQUET,,
+./repayment_collected.ipynb,contract_payback (amft.db),PARQUET,repayment_collected (amft.db),PARQUET
+./closed_contract.ipynb,v2_repayment_history (amft.db),PARQUET,closed_contract (amft.db),PARQUET
+./closed_contract.ipynb,v2_repayment_history (amft.db),PARQUET,,
+./closed_contract.ipynb,closed_contract (amft.db),PARQUET,,
+./stg_order_loan-T0.ipynb,order_loan_hash (amft.db),PARQUET,order_loan (amft.db),PARQUET
+./stg_order_loan-T0.ipynb,order_loan_hash (amft.db),PARQUET,,
+./stg_order_loan-T0.ipynb,order_loan (amft.db),PARQUET,,
+./mob_by_update_last_date.ipynb,v2_repayment_by_mob (amft.db),PARQUET,mob_by_update_last_date (amft.db),PARQUET
+./mob_by_update_last_date.ipynb,v2_contract (amft.db),PARQUET,dm_vintage_risk (amft.db),PARQUET
+./mob_by_update_last_date.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
+./mob_by_update_last_date.ipynb,mob_by_update_last_date (amft.db),PARQUET,,
+./EligibleLog.ipynb,eligiblelog_hash (amft_staging.db),PARQUET,eligiblelog_hash (amft_staging.db),PARQUET
+./EligibleLog.ipynb,EligibleLog (amft_staging.db),PARQUET,,
+./fm_blacklist_daily.ipynb,"fm_blacklist', schema=schema).filter(col(""process_date_key (amft.db)",CSV,fm_blacklist (amft.db),CSV
+./fm_blacklist_daily.ipynb,v2_repayment_history (amft.db),PARQUET,,
+./roll_rate_dpd.ipynb,v2_contract (amft.db),PARQUET,roll_rate_dpd (amft.db),PARQUET
+./roll_rate_dpd.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
+./stg_order_loan-T1.ipynb,order_loan_hash (amft.db),PARQUET,order_loan (amft.db),PARQUET
+./stg_order_loan-T1.ipynb,order_loan_hash (amft.db),PARQUET,,
+./stg_order_loan-T1.ipynb,order_loan (amft.db),PARQUET,,
+./Collection_payment_data_cash_loan.ipynb,v2_repayment_current (amft.db),PARQUET,report (amft.db),CSV
+./Collection_payment_data_cash_loan.ipynb,v2_collection_current (amft.db),PARQUET,collection_payment_data_cash_loan (amft.db),PARQUET
+./Collection_payment_data_cash_loan.ipynb,v2_contract (amft.db),PARQUET,,
+./Collection_payment_data_cash_loan.ipynb,contract_payback (amft.db),PARQUET,,
+./dm_los_approval.ipynb,order_loan (amft.db),PARQUET,dm_los_approval (amft.db),PARQUET
+./dm_los_approval.ipynb,"dim_loanstatus',header=True,sep="","",inferSchema=True)df_order_loan_group=(df_order_loan.groupBy(col('servicecode (amft_staging.db)",CSV,,
+./TEST.ipynb,v2_dm_key_risk_indicators_ever (amft.db),PARQUET,tmp (amft_staging.db),CSV
+./TEST.ipynb,contract_hash (amft.db),PARQUET,v2_contract_info (amft.db),PARQUET
+./TEST.ipynb,"tmp"",header=True,sep="","",inferSchema=True).withColumn('updated_date', regexp_replace(substring(column('updated_on (amft_staging.db)",CSV,,
+./TEST.ipynb,v2_contract (amft.db),PARQUET,,
+./TEST.ipynb,v2_contract_info (amft.db),PARQUET,,
+./TEST.ipynb,v2_contract_info_temp (amft.db),PARQUET,,
+./TEST.ipynb,newton_contract (amft.db),PARQUET,,
+./TEST.ipynb,newton_repayment_history (amft.db),PARQUET,,
+./outstanding-loan-Copy1.ipynb,v2_score_provider (amft.db),PARQUET,v2_dm_outstanding_loan (amft.db),PARQUET
+./ews-collection.ipynb,,,ews_daily (amft.db),CSV
+./Collection_payment_data_newton.ipynb,newton_repayment_current (amft.db),PARQUET,report (amft.db),CSV
+./Collection_payment_data_newton.ipynb,newton_collection_current (amft.db),PARQUET,collection_payment_data_newton (amft.db),PARQUET
+./Collection_payment_data_newton.ipynb,newton_contract (amft.db),PARQUET,,
+./Collection_payment_data_newton.ipynb,newton_contract_payback (amft.db),PARQUET,,
+./Collection_payment_data_newton.ipynb,collection_payment_data_cash_loan (amft.db),PARQUET,,
+./contract_terminate.ipynb,contract_terminate (amft.db),PARQUET,contract_terminate_tmp (amft.db),PARQUET
+./contract_terminate.ipynb,contract_terminate_tmp (amft.db),PARQUET,contract_terminate (amft.db),PARQUET
+./contract_terminate.ipynb,v2_repayment_history (amft.db),PARQUET,,
+./contract_terminate.ipynb,v2_contract (amft.db),PARQUET,,
+./repayment_by_mob.ipynb,mob_by_update_last_date (amft.db),PARQUET,repayment_by_mob_2 (amft.db),PARQUET
+./repayment_by_mob.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
+./stg_pcb.ipynb,pcb (amft.db),PARQUET,pcb_tmp (amft.db),PARQUET
+./stg_pcb.ipynb,PcbLog (amft_staging.db),CSV,pcb (amft.db),PARQUET
+./stg_pcb.ipynb,pcb_tmp (amft.db),PARQUET,,
+./Merge_order_loan.ipynb,order_loan (amft_staging.db),PARQUET,order_loan (amft_staging.db),PARQUET
+./Merge_order_loan.ipynb,fastmoney (amft_staging.db),CSV,,
+./dim_source_score.ipynb,v2_dm_key_risk_indicators_ever (amft.db),PARQUET,dim_source_score (amft.db),PARQUET
+./loan-active.ipynb,,,loan_active (amft.db),PARQUET
+./quality-check.ipynb,{table} (amft.db),PARQUET,,
+./terminate_overview.ipynb,contract_terminate (amft.db),PARQUET,terminate_overview (amft.db),PARQUET
+./score-provider.ipynb,DataToAmber_v2 (amft_staging.db),CSV,v2_score_provider (amft.db),PARQUET
+./outstanding-loan-check.ipynb,v2_repayment_current (amft.db),PARQUET,v2_dm_outstanding_loan_check (amft.db),PARQUET
+./outstanding-loan-check.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./outstanding-loan-check.ipynb,v2_score_provider (amft.db),PARQUET,,
+./repayment_remaining.ipynb,v2_contract_info (amft.db),PARQUET,repayment_remaining (amft.db),PARQUET
+./repayment_remaining.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./Backfill job/stg_order_loan-T0_backfill.ipynb,order_loan_hash (amft.db),PARQUET,order_loan (amft.db),PARQUET
+./Backfill job/Merge_order_loan_backfill.ipynb,order_loan (amft_staging.db),PARQUET,,
+./Backfill job/Merge_order_loan_backfill.ipynb,fastmoney (amft_staging.db),CSV,,
+./Backfill job/Merge_order_loan_backup.ipynb,order_loan (amft_staging.db),PARQUET,,
+./Backfill job/Merge_order_loan_backup.ipynb,bak_orderloan (amft_staging.db),CSV,,
+./Backfill job/Contract_utm_source_date.ipynb,v2_contract (amft.db),PARQUET,v2_contract_temp (amft.db),PARQUET
+./Backfill job/Contract_utm_source_date.ipynb,v2_contract_temp (amft.db),PARQUET,v2_contract (amft.db),PARQUET
+./Backfill job/Contract_utm_source_date.ipynb,v2_contract_info (amft.db),PARQUET,,
+./Backfill job/mob_by_update_last_date_backfill.ipynb,v2_repayment_by_mob (amft.db),PARQUET,mob_by_update_last_date (amft.db),PARQUET
+./Backfill job/mob_by_update_last_date_backfill.ipynb,v2_contract (amft.db),PARQUET,dm_vintage_risk (amft.db),PARQUET
+./Backfill job/mob_by_update_last_date_backfill.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
+./Backfill job/contract_info_backfill.ipynb,v2_contract_temp (amft.db),PARQUET,v2_contract_temp (amft.db),PARQUET
+./Backfill job/contract_info_backfill.ipynb,v2_contract (amft.db),PARQUET,v2_contract_info (amft.db),PARQUET
+./Backfill job/contract_info_backfill.ipynb,"DataToAmber_v2',header=True,schema=schema)).distinct()DataProfileToAmber_v2 = (spark.read.option('header',True).csv(f' (amft_staging.db)",CSV,v2_contract_temp1 (amft.db),PARQUET
+./Backfill job/contract_info_backfill.ipynb,v2_contract_temp1 (amft.db),PARQUET,v2_contract (amft.db),PARQUET
+./Backfill job/repayment_collected_backfill.ipynb,contract_payback (amft.db),PARQUET,repayment_collected (amft.db),PARQUET
+./Backfill job/key_risk_indicators_current_backfill.ipynb,v2_repayment_current (amft.db),PARQUET,v2_key_risk_indicators_current (amft.db),PARQUET
+./Backfill job/key_risk_indicators_current_backfill.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./Backfill job/key_risk_indicators_ever_backfill.ipynb,v2_repayment_history (amft.db),PARQUET,v2_key_risk_indicators_ever (amft.db),PARQUET
+./Backfill job/key_risk_indicators_ever_backfill.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./Risk/risk_ever_v2.ipynb,v2_contract (amft.db),PARQUET,dm_risk_ever_v2 (amft.db),PARQUET
+./Risk/risk_ever_v2.ipynb,dm_key_risk_indicators_ever_2 (amft.db),PARQUET,,
+./Risk/risk_ever_v2.ipynb,stg_tracking_performance (amft.db),PARQUET,,
+./Risk/dm_key_risk_indicators_ever_2.ipynb,v2_dm_key_risk_indicators_ever (amft.db),PARQUET,dm_key_risk_indicators_ever_2 (amft.db),PARQUET
+./Risk/risk_current_v2.ipynb,v2_contract (amft.db),PARQUET,dm_risk_current_v2 (amft.db),PARQUET
+./Risk/risk_current_v2.ipynb,dm_key_risk_indicators_current_2 (amft.db),PARQUET,,
+./Risk/risk_current_v2.ipynb,stg_tracking_performance (amft.db),PARQUET,,
+./Risk/dm_key_risk_indicators_current_2.ipynb,v2_dm_key_risk_indicators_current (amft.db),PARQUET,dm_key_risk_indicators_current_2 (amft.db),PARQUET
+./Jar/contract_score_bin.ipynb,v2_score_info (amft.db),PARQUET,,
+./Jar/Newton/Newton_KPIB0B2.ipynb,newton_collection_current (amft.db),PARQUET,report (amft.db),CSV
+./Jar/Newton/Newton_KPIB0B2.ipynb,newton_repayment_current (amft.db),PARQUET,newton_kpi_b0_b2 (amft.db),PARQUET
+./Jar/Newton/Newton_KPIB3B5.ipynb,newton_collection_current (amft.db),PARQUET,newton_kpi_b3_b5 (amft.db),PARQUET
+./Jar/Newton/Newton_KPIB3B5.ipynb,newton_repayment_current (amft.db),PARQUET,report (amft.db),CSV
+./ThangDoDinh/repayment_curent.ipynb,v2_repayment_history (amft.db),PARQUET,v2_repayment_current (amft.db),PARQUET
+./ThangDoDinh/repayment_curent.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./ThangDoDinh/v2_contract_info-v2.ipynb,v2_contract_info (amft.db),PARQUET,v2_contract_info (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info-v2.ipynb,DataToAmber_v2 (amft_staging.db),CSV,,
+./ThangDoDinh/contract_bought.ipynb,v2_contract_info (amft.db),PARQUET,,
+./ThangDoDinh/key_risk_indicators_current.ipynb,v2_repayment_current (amft.db),PARQUET,v2_key_risk_indicators_current (amft.db),PARQUET
+./ThangDoDinh/key_risk_indicators_current.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./ThangDoDinh/PaybackToAmber.ipynb,DataPaybackToAmber_v1 (amft_staging.db),CSV,stg_payback2amber (amft.db),PARQUET
+./ThangDoDinh/v2_contract_score_bin.ipynb,v2_contract_info (amft.db),PARQUET,v2_contract_score_bin (amft.db),PARQUET
+./ThangDoDinh/v2_contract_score_bin.ipynb,v2_score_info (amft.db),PARQUET,,
+./ThangDoDinh/v2_contract_score_bin.ipynb,v2_contract_score_bin (amft.db),PARQUET,,
+./ThangDoDinh/oustanding_capital_checking.ipynb,v2_contract (amft.db),PARQUET,oustanding_capital_checking (amft.db),PARQUET
+./ThangDoDinh/oustanding_capital_checking.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_current.ipynb,v2_key_risk_indicators_current (amft.db),PARQUET,v2_dm_key_risk_indicators_current (amft.db),PARQUET
+./ThangDoDinh/dm_key_risk_indicators_current.ipynb,v2_contract_info (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_current.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_current.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_current.ipynb,v2_contract_score_bin (amft.db),PARQUET,,
+./ThangDoDinh/v2_contract_info-MAIN.ipynb,v2_contract_info (amft.db),PARQUET,v2_contract_info_temp (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info-MAIN.ipynb,DataToAmber_v2 (amft_staging.db),CSV,v2_contract_info (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info-MAIN.ipynb,v2_contract_info_temp (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,stg_contract (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,stg_data2amber (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_repayment_history (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_contract (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_collection_history (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_collection_current (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_dm_notcall_unfinish_B0_B5 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_dm_fastcall_by_claim (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,stg_contract_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,stg_data2amber_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_repayment_history_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_contract_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_collection_history_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_collection_current_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_dm_notcall_unfinish_B0_B5_v2 (amft.db),PARQUET,,
+./ThangDoDinh/Compare_data_v2_TO_v1-Copy1.ipynb,v2_dm_fastcall_by_claim_v2 (amft.db),PARQUET,,
+./ThangDoDinh/v2_contract_info.ipynb,"DataToAmber_v2',header=True,schema=schema)).distinct()DataProfileToAmber_v2 = (spark.read.option('header',True).csv(f' (amft_staging.db)",CSV,v2_contract_temp (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info.ipynb,v2_contract (amft.db),PARQUET,v2_contract_info (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info.ipynb,v2_contract_temp (amft.db),PARQUET,v2_contract (amft.db),PARQUET
+./ThangDoDinh/v2_contract_info.ipynb,v2_contract_info (amft.db),PARQUET,,
+./ThangDoDinh/COALESCE_DATA.ipynb,stg_data2amber (amft.db),PARQUET,migrate_table (amft.db),PARQUET
+./ThangDoDinh/COALESCE_DATA.ipynb,migrate_table (amft.db),PARQUET,stg_loan_collection (amft.db),PARQUET
+./ThangDoDinh/repayment_by_mob.ipynb,v2_repayment_current (amft.db),PARQUET,v2_repayment_by_mob (amft.db),PARQUET
+./ThangDoDinh/v2_score_info.ipynb,,,v2_score_info (amft.db),PARQUET
+./ThangDoDinh/dm_key_risk_indicators_ever.ipynb,v2_key_risk_indicators_ever (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_ever.ipynb,v2_contract_info (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_ever.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_ever.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
+./ThangDoDinh/dm_key_risk_indicators_ever.ipynb,v2_contract_score_bin (amft.db),PARQUET,,
+./ThangDoDinh/contract.ipynb,DataToAmber_v2 (amft_staging.db),CSV,,
+./ThangDoDinh/contract.ipynb,v2_contract_momofb_dupl (amft.db),PARQUET,,
+./ThangDoDinh/contract.ipynb,stg_data2amber (amft.db),PARQUET,,
+./ThangDoDinh/contract.ipynb,stg_contract (amft.db),PARQUET,,
+./ThangDoDinh/contract.ipynb,v2_contract (amft.db),PARQUET,,
+./ThangDoDinh/contract.ipynb,DataProfileToAmber_v2 (amft_staging.db),CSV,,
+./ThangDoDinh/key_risk_indicators_ever.ipynb,v2_repayment_by_mob (amft.db),PARQUET,v2_key_risk_indicators_ever (amft.db),PARQUET
+./ThangDoDinh/key_risk_indicators_ever.ipynb,v2_key_risk_indicators_ever (amft.db),PARQUET,,
+./ThangDoDinh/test.ipynb,v2_contract_score_bin (amft.db),PARQUET,v2_collection_history_v2 (amft.db),PARQUET
+./ThangDoDinh/test.ipynb,stg_loan_collection (amft.db),PARQUET,,
+./ThangDoDinh/test.ipynb,v2_collection_history (amft.db),PARQUET,,
+./Tracking_performance/get_dataset_tracking_performance.ipynb,v2_score_info (amft.db),PARQUET,,
+./Tracking_performance/get_dataset_tracking_performance.ipynb,dim_status (amft.db),PARQUET,,
+./Tracking_performance/get_dataset_tracking_performance.ipynb,contract_info_hash (amft.db),PARQUET,,
+./Tracking_performance/Tracking_performance_final.ipynb,stg_tracking_performance (amft.db),PARQUET,,
+./Tracking_performance/Tracking_performance_final.ipynb,v2_contract_info (amft.db),PARQUET,,
+./Collection/dim_date.ipynb,,,dim_date (amft.db),PARQUET
+./Collection/dim_status.ipynb,,,dim_status (amft.db),PARQUET
+./Collection/fact_collection_daily.ipynb,v2_repayment_current (amft.db),PARQUET,fact_collection_daily (amft.db),PARQUET
+./Collection/fact_collection_daily.ipynb,v2_contract_info (amft.db),PARQUET,,
+./Collection/fact_collection_daily.ipynb,collection_payment_data_cash_loan (amft.db),PARQUET,,
+./Collection/dm_collection_effectiveness.ipynb,dim_collection (amft.db),PARQUET,dm_collection_effectiveness (amft.db),PARQUET
+./Collection/dm_collection_effectiveness.ipynb,dm_roll_fw (amft.db),PARQUET,,
+./Collection/dim_collection.ipynb,,,dim_collection (amft.db),PARQUET
+./Collection/dm_roll_fw.ipynb,dim_collection (amft.db),PARQUET,dm_roll_fw (amft.db),PARQUET
+./Collection/dm_roll_fw.ipynb,fact_collection_daily (amft.db),PARQUET,,
+./Collection/fact_collection_daily_v2.ipynb,repayment_collected (amft.db),PARQUET,fact_collection_daily (amft.db),PARQUET
+./Collection/fact_collection_daily_v2.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
+./Collection/fact_collection_daily_v2.ipynb,v2_repayment_current (amft.db),PARQUET,,
+./Collection/fact_collection_daily_v2.ipynb,repayment_by_mob_2 (amft.db),PARQUET,,
+./Collection/fact_collection_daily_v2.ipynb,repayment_collected (amft.db),PARQUET,,
+./Collection/fact_collection_daily_v2.ipynb,v2_contract_info (amft.db),PARQUET,,

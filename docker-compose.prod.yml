@@ -1,0 +1,42 @@
+version: '3.8'
+
+services:
+  # Frontend service (Nginx serving React build)
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "2604:2604"      # HTTP
+      # - "443:443"  # HTTPS (uncomment if using SSL)
+    depends_on:
+      - api
+    volumes:
+      # Mount local public folder - changes sync immediately
+      - ./public:/usr/share/nginx/html/public:ro
+    restart: always
+    networks:
+      - lineage-network
+    command: ["nginx", "-g", "daemon off;"]
+
+  # Backend API service
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile.api
+    ports:
+      - "3000:3000"
+    volumes:
+      # Mount local public folder - API writes here
+      - ./public:/app/public
+    environment:
+      - API_PORT=3000
+      - NODE_ENV=production
+    restart: always
+    networks:
+      - lineage-network
+    command: ["node", "server.js"]
+
+networks:
+  lineage-network:
+    driver: bridge
