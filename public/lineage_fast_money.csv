@@ -14,8 +14,11 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./mob_by_update_last_date.ipynb,v2_contract (amft.db),PARQUET,dm_vintage_risk (amft.db),PARQUET
 ./mob_by_update_last_date.ipynb,oustanding_capital_checking (amft.db),PARQUET,,
 ./mob_by_update_last_date.ipynb,mob_by_update_last_date (amft.db),PARQUET,,
+./S37Log.ipynb,s37log_hash (amft_staging.db),PARQUET,s37log_hash (amft_staging.db),PARQUET
+./S37Log.ipynb,S37Log (amft_staging.db),PARQUET,,
 ./EligibleLog.ipynb,eligiblelog_hash (amft_staging.db),PARQUET,eligiblelog_hash (amft_staging.db),PARQUET
 ./EligibleLog.ipynb,EligibleLog (amft_staging.db),PARQUET,,
+./EligibleLog.ipynb,EligibleLog (amft_staging.db),CSV,,
 ./fm_blacklist_daily.ipynb,"fm_blacklist', schema=schema).filter(col(""process_date_key (amft.db)",CSV,fm_blacklist (amft.db),CSV
 ./fm_blacklist_daily.ipynb,v2_repayment_history (amft.db),PARQUET,,
 ./roll_rate_dpd.ipynb,v2_contract (amft.db),PARQUET,roll_rate_dpd (amft.db),PARQUET
@@ -66,6 +69,10 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./repayment_remaining.ipynb,v2_contract_info (amft.db),PARQUET,repayment_remaining (amft.db),PARQUET
 ./repayment_remaining.ipynb,v2_repayment_by_mob (amft.db),PARQUET,,
 ./Backfill job/stg_order_loan-T0_backfill.ipynb,order_loan_hash (amft.db),PARQUET,order_loan (amft.db),PARQUET
+./Backfill job/contract_terminate_backfill.ipynb,contract_terminate (amft.db),PARQUET,contract_terminate_tmp (amft.db),PARQUET
+./Backfill job/contract_terminate_backfill.ipynb,contract_terminate_tmp (amft.db),PARQUET,contract_terminate (amft.db),PARQUET
+./Backfill job/contract_terminate_backfill.ipynb,v2_repayment_history (amft.db),PARQUET,,
+./Backfill job/contract_terminate_backfill.ipynb,v2_contract (amft.db),PARQUET,,
 ./Backfill job/Merge_order_loan_backfill.ipynb,order_loan (amft_staging.db),PARQUET,,
 ./Backfill job/Merge_order_loan_backfill.ipynb,fastmoney (amft_staging.db),CSV,,
 ./Backfill job/Merge_order_loan_backup.ipynb,order_loan (amft_staging.db),PARQUET,,

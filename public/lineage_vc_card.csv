@@ -174,6 +174,34 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./dw_card/dw_ka_loan_fct.ipynb,dw_tcc_principaldebtconversion_dim (vc_data_dwh.db),PARQUET,,
 ./dw_card/dw_ka_loan_fct.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
 ./dw_card/dw_ka_loan_fct.ipynb,df_dw_loan_provision_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_growth_application_fct (vc_data_dwh.db),PARQUET,dw_growth_application_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_growth_application_fct_tmp (vc_data_dwh.db),PARQUET,dw_card_transaction_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_transaction_fct (vc_data_dwh.db),PARQUET,dw_card_invoice_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_transaction_fct_tmp (vc_data_dwh.db),PARQUET,dw_card_invoice_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dw_account_gl_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_loan_payment_fct_tmp (vc_data_dwh.db),PARQUET,dw_account_balance_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,dw_card_dim (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_invoice_fct_check (vc_data_dwh.db),PARQUET,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,dw_card_loan_fct (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,tmp_dw_account_gl_tmp_daily (vc_data_dwh.db),PARQUET,dw_card_loan_fct_tmp_8 (vc_data_dwh.db),PARQUET
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_gl_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_gl_fct_1 (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_gl_fct_test (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_balance_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_balance_fct_check (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_dim_raw (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,tmp_account_aging_period_end_day_backup (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,tmp_account_aging_period_end_day_check (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_term_dim (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_loan_fct (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_card_loan_fct_tmp_8 (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,gl_in_stg (vc_data_dwh.db),PARQUET,,
+./dw_card/Migrate_history_data-Copy1.ipynb,dw_account_dim (vc_data_dwh.db),PARQUET,,
 ./dw_card/dwa_first_transaction_date_of_card_fct_daily.ipynb,fe_curr_trans (vc_cms.db),PARQUET,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET
 ./dw_card/dwa_first_transaction_date_of_card_fct_daily.ipynb,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET,,
 ./dw_card/dwa_first_transaction_date_of_card_fct_init.ipynb,fe_curr_trans (vc_cms.db),PARQUET,dwa_first_transaction_date_of_card_fct (vc_data_dwh.db),PARQUET
@@ -349,7 +377,7 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./dw_card/quality_check_ods_and_hdfs.ipynb,dw_account_balance_eod_fct (vc_data_dwh.db),PARQUET,,
 ./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_invoice_fct (vc_data_dwh.db),PARQUET,,
 ./dw_card/quality_check_ods_and_hdfs.ipynb,dw_card_loan_payment_fct (vc_data_dwh.db),PARQUET,,
-./dw_app/dw_application_dim.ipynb,f1_ (vc_los_cas.db),PARQUET,tmp_c_main_loan_app (vc_data_dwh.db),PARQUET
+./dw_app/dw_application_dim.ipynb,f1_party (vc_los_cas.db),PARQUET,tmp_c_main_loan_app (vc_data_dwh.db),PARQUET
 ./dw_app/dw_application_dim.ipynb,f1_loan_application (vc_los_cas.db),PARQUET,tmp_c_crd (vc_data_dwh.db),PARQUET
 ./dw_app/dw_application_dim.ipynb,f1_customer (vc_los_cas.db),PARQUET,tmp_c_officer (vc_data_dwh.db),PARQUET
 ./dw_app/dw_application_dim.ipynb,f1_sub_loan (vc_los_cas.db),PARQUET,tmp_card_type_pre_application_dim (vc_data_dwh.db),PARQUET
@@ -497,6 +525,8 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./dw_app/dw_application_recommendation_step_fct_daily.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_recommendation_step_fct (vc_data_dwh.db),PARQUET
 ./dw_app/merge_to_application.ipynb,dw_application_dim (vc_data_dwh.db),PARQUET,dw_application_dim_temp (vc_data_dwh.db),PARQUET
 ./dw_app/merge_to_application.ipynb,dw_application_dim_temp (vc_data_dwh.db),PARQUET,dw_application_dim (vc_data_dwh.db),PARQUET
+./dw_app/merge_to_application.ipynb,dw_card_type_group_dim (vc_data_dwh.db),PARQUET,,
+./dw_app/merge_to_application.ipynb,dw_card_type_sun_mapping_dim (vc_data_dwh.db),PARQUET,,
 ./dw_app/merge_to_application.ipynb,f1_credit_card_type (vc_los_cas.db),PARQUET,,
 ./dw_app/merge_to_application.ipynb,de_application_form (tincard.db),PARQUET,,
 ./dw_app/dw_application_recommendation_step_fct_init.ipynb,dw_application_step_fct (vc_data_dwh.db),PARQUET,dw_application_recommendation_step_fct (vc_data_dwh.db),PARQUET
@@ -718,3 +748,4 @@ notebook_name,source_table,source_type,destination_table,destination_type
 ./dw_webreport/dw_loan_dp_tctd_fct_init.ipynb,tmp_dw_loan_dp_tctd_fct (vc_data_dwh.db),CSV,dw_loan_dp_tctd_fct (vc_data_dwh.db),PARQUET
 ./dw_webreport/dw_loan_bank2k_fct.ipynb,etl_loan_bank2k_stg (vc_osystem.db),PARQUET,dw_loan_bank2k_fct (vc_data_dwh.db),PARQUET
 ./dw_webreport/dw_loan_bank2k_fct.ipynb,dw_loan_bank2k_fct (vc_data_dwh.db),PARQUET,,
+./staging_data/staging_test_write.ipynb,,,staging_test_data (vc_data_staging.db),PARQUET

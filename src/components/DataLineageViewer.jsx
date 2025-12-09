@@ -1,19 +1,135 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
-import { ChevronRight, ChevronDown, Database, FileText, Table, Download, Filter, ZoomIn, ZoomOut, Maximize2, Minimize2, ArrowDown, Info, RefreshCw, Package, ChevronLeft, List } from 'lucide-react';
+import { ChevronRight, ChevronDown, Database, FileText, Table, Download, Filter, ZoomIn, ZoomOut, Maximize2, Minimize2, ArrowDown, Info, RefreshCw, Package, ChevronLeft, List, HelpCircle, X } from 'lucide-react';
 import Papa from 'papaparse';
 import TableSchemaModal from './TableSchemaModal';
 
 // Product configuration
 const PRODUCTS = [
-  { id: 'tinvay', name: 'Tinvay', lineageFile: 'lineage_tinvay.csv', schemaFile: 'schema_tinvay.csv' },
-  { id: 'vc_card', name: 'VC Card', lineageFile: 'lineage_vc_card.csv', schemaFile: 'schema_vc_card.csv' },
-  { id: 'fast_money', name: 'Fast Money', lineageFile: 'lineage_fast_money.csv', schemaFile: 'schema_fast_money.csv' },
+  { id: 'tinvay', name: 'Tinvay', lineageFile: 'lineage_tinvay.csv', schemaFile: 'schema_tinvay.csv', columnLineageFile: 'column_lineage_tinvay.csv' },
+  { id: 'vc_card', name: 'VC Card', lineageFile: 'lineage_vc_card.csv', schemaFile: 'schema_vc_card.csv', columnLineageFile: 'column_lineage_vc_card.csv' },
+  { id: 'fast_money', name: 'Fast Money', lineageFile: 'lineage_fast_money.csv', schemaFile: 'schema_fast_money.csv', columnLineageFile: 'column_lineage_fast_money.csv' },
 ];
 
+// Transformation types legend/guide
+const TRANSFORMATION_TYPES_INFO = {
+  DIRECT: {
+    color: 'bg-green-100 text-green-700 border-green-300',
+    icon: '→',
+    label: 'Direct',
+    description: 'Cột được copy trực tiếp từ source sang destination mà không thay đổi',
+    example: "select('contract_id') → contract_id"
+  },
+  ALIAS: {
+    color: 'bg-blue-100 text-blue-700 border-blue-300',
+    icon: '↔',
+    label: 'Alias',
+    description: 'Cột được đổi tên (rename) từ source column sang tên mới',
+    example: "col('old_name').alias('new_name')"
+  },
+  AGGREGATION: {
+    color: 'bg-orange-100 text-orange-700 border-orange-300',
+    icon: 'Σ',
+    label: 'Aggregation',
+    description: 'Cột được tính toán từ hàm tổng hợp (sum, count, avg, max, min...)',
+    example: "sum('amount').alias('total')"
+  },
+  CONDITIONAL: {
+    color: 'bg-yellow-100 text-yellow-700 border-yellow-300',
+    icon: '?',
+    label: 'Conditional',
+    description: 'Cột được tạo từ điều kiện when/case (if-else logic)',
+    example: "when(col('dpd')>=30, 1).otherwise(0)"
+  },
+  EXPRESSION: {
+    color: 'bg-purple-100 text-purple-700 border-purple-300',
+    icon: 'ƒ',
+    label: 'Expression',
+    description: 'Cột được tính toán từ biểu thức phức tạp hoặc hàm',
+    example: "col('a') + col('b'), concat(...)"
+  },
+  LITERAL: {
+    color: 'bg-gray-100 text-gray-700 border-gray-300',
+    icon: '#',
+    label: 'Literal',
+    description: 'Cột được gán giá trị cố định (constant), không từ source column',
+    example: "lit(100), lit('active')"
+  },
+  CAST: {
+    color: 'bg-indigo-100 text-indigo-700 border-indigo-300',
+    icon: '⇄',
+    label: 'Cast',
+    description: 'Cột được chuyển đổi kiểu dữ liệu (type casting)',
+    example: "col('id').cast('string')"
+  },
+  DATE_EXPR: {
+    color: 'bg-pink-100 text-pink-700 border-pink-300',
+    icon: '📅',
+    label: 'Date Expression',
+    description: 'Cột được tính toán từ các hàm xử lý ngày tháng',
+    example: "date_format(), datediff(), date_add()"
+  },
+  STRING_EXPR: {
+    color: 'bg-teal-100 text-teal-700 border-teal-300',
+    icon: 'T',
+    label: 'String Expression',
+    description: 'Cột được xử lý từ các hàm chuỗi',
+    example: "substring(), concat(), trim()"
+  },
+  WINDOW: {
+    color: 'bg-cyan-100 text-cyan-700 border-cyan-300',
+    icon: '▤',
+    label: 'Window Function',
+    description: 'Cột được tính từ window/analytical functions',
+    example: "row_number(), rank(), lead(), lag()"
+  },
+  GROUPBY: {
+    color: 'bg-amber-100 text-amber-700 border-amber-300',
+    icon: '⊞',
+    label: 'Group By',
+    description: 'Cột được sử dụng làm key trong groupBy (pass-through)',
+    example: "groupBy('utm_source', 'month')"
+  },
+  ARRAY_EXPR: {
+    color: 'bg-rose-100 text-rose-700 border-rose-300',
+    icon: '[]',
+    label: 'Array Expression',
+    description: 'Cột được tạo từ xử lý array/sequence',
+    example: "explode(), sequence(), collect_list()"
+  },
+  UNKNOWN: {
+    color: 'bg-slate-100 text-slate-600 border-slate-300',
+    icon: '?',
+    label: 'Unknown',
+    description: 'Loại transformation chưa được phân loại',
+    example: ''
+  }
+};
+
 // Performance constants
-const MAX_FLOW_SOURCES = 8; // Max sources to show in flow view
-const MAX_TREE_DEPTH = 3; // Max depth in flow view
+const MAX_FLOW_SOURCES = 36; // Max sources to show in flow view
+const MAX_TREE_DEPTH = 1; // Max depth in flow view
 const SOURCES_PER_PAGE = 10; // Sources per page in list view
+const MAX_TREE_LEVEL = 2; // Max levels to expand in tree view (left panel)
+
+// Helper function to shorten notebook path
+// Full: /home/jupyter/notebook.home/etl_data/dop/track_approval.ipynb
+// Short: .../dop/track_approval.ipynb
+const shortenPath = (fullPath) => {
+  if (!fullPath) return '';
+  
+  // Remove leading ./ if present
+  let path = fullPath.replace(/^\.\//, '');
+  
+  // Split by /
+  const parts = path.split('/');
+  
+  // If path is short enough, return as is
+  if (parts.length <= 2) return path;
+  
+  // Get last 2 parts (folder/filename)
+  const shortParts = parts.slice(-2);
+  return `.../${shortParts.join('/')}`;
+};
 
 const DataLineageViewer = () => {
   const [lineageData, setLineageData] = useState(null);
@@ -29,10 +145,17 @@ const DataLineageViewer = () => {
   const [zoomLevel, setZoomLevel] = useState(1);
   const [isFullScreen, setIsFullScreen] = useState(false);
   
+  // Enhanced filter options
+  const [filterMode, setFilterMode] = useState('destination'); // 'destination', 'source', 'both'
+  const [searchScope, setSearchScope] = useState('all'); // 'all', 'destination', 'source'
+  
   // Schema state
   const [schemaData, setSchemaData] = useState(new Map());
   const [selectedTableForSchema, setSelectedTableForSchema] = useState(null);
   const [saveStatus, setSaveStatus] = useState(null);
+
+  // Column Lineage state
+  const [columnLineageData, setColumnLineageData] = useState(new Map());
 
   // Product state
   const [selectedProduct, setSelectedProduct] = useState(PRODUCTS[0]);
@@ -41,6 +164,9 @@ const DataLineageViewer = () => {
   // View mode state for handling large source lists
   const [flowViewMode, setFlowViewMode] = useState('flow'); // 'flow' or 'list'
   const [sourceListPage, setSourceListPage] = useState(0);
+
+  // Transformation legend toggle
+  const [showTransformLegend, setShowTransformLegend] = useState(false);
 
   // Load data when product changes
   useEffect(() => {
@@ -53,6 +179,53 @@ const DataLineageViewer = () => {
     setSourceListPage(0);
   }, [selectedTable]);
 
+  // Auto-expand parent tables when searching in sources (with debounce)
+  useEffect(() => {
+    if (!searchTerm || !lineageData) {
+      return;
+    }
+    
+    // Debounce: wait 500ms after user stops typing
+    const timeoutId = setTimeout(() => {
+      // Only auto-expand if search term is at least 3 characters
+      if (searchTerm.length < 3) return;
+      
+      const term = searchTerm.toLowerCase();
+      const tablesToExpand = new Set();
+      const MAX_AUTO_EXPAND = 10; // Limit to prevent performance issues
+      
+      // Find parent tables that have matching sources
+      for (const root of lineageData.roots) {
+        if (tablesToExpand.size >= MAX_AUTO_EXPAND) break;
+        
+        const tableData = lineageData.tables.get(root.name);
+        if (!tableData || !tableData.sourceNames) continue;
+        
+        // Check if any source matches the search term
+        const hasMatchingSource = tableData.sourceNames.some(src => 
+          src.toLowerCase().includes(term)
+        );
+        
+        // Expand if searching in 'all' or 'source' scope
+        if (hasMatchingSource && (searchScope === 'all' || searchScope === 'source')) {
+          tablesToExpand.add(root.name);
+        }
+      }
+      
+      // Expand matched parent tables
+      if (tablesToExpand.size > 0) {
+        setExpandedNodes(prev => {
+          const newExpanded = new Set(prev);
+          tablesToExpand.forEach(table => newExpanded.add(table));
+          return newExpanded;
+        });
+      }
+    }, 500); // 500ms debounce
+    
+    // Cleanup timeout on next keystroke
+    return () => clearTimeout(timeoutId);
+  }, [searchTerm, searchScope, lineageData]);
+
   const loadData = async () => {
     setLoading(true);
     setError(null);
@@ -60,6 +233,7 @@ const DataLineageViewer = () => {
     setExpandedNodes(new Set());
     await loadCSVFile();
     await loadSchemaFile();
+    await loadColumnLineageFile();
   };
 
   const loadCSVFile = async () => {
@@ -114,6 +288,59 @@ const DataLineageViewer = () => {
       setSchemaData(new Map());
     }
   };
+
+  const loadColumnLineageFile = async () => {
+    try {
+      const response = await fetch(`/${selectedProduct.columnLineageFile}`);
+      if (!response.ok) {
+        console.warn(`Column lineage file ${selectedProduct.columnLineageFile} not found`);
+        setColumnLineageData(new Map());
+        return;
+      }
+      const csvText = await response.text();
+      
+      Papa.parse(csvText, {
+        header: true,
+        skipEmptyLines: true,
+        complete: (results) => {
+          processColumnLineageData(results.data);
+        },
+        error: (error) => {
+          console.warn('Column lineage file error:', error);
+          setColumnLineageData(new Map());
+        }
+      });
+    } catch (err) {
+      console.warn('Column lineage file not available');
+      setColumnLineageData(new Map());
+    }
+  };
+
+  const processColumnLineageData = useCallback((data) => {
+    // Group by destination_table
+    const columnLineageMap = new Map();
+    
+    data.forEach(row => {
+      const destTable = row.destination_table?.trim();
+      if (!destTable) return;
+      
+      if (!columnLineageMap.has(destTable)) {
+        columnLineageMap.set(destTable, []);
+      }
+      
+      columnLineageMap.get(destTable).push({
+        sourceTable: row.source_table?.trim() || '',
+        sourceColumn: row.source_column?.trim() || '',
+        destinationColumn: row.destination_column?.trim() || '',
+        transformationType: row.transformation_type?.trim() || 'UNKNOWN',
+        transformationExpr: row.transformation_expr?.trim() || '',
+        notebook: row.notebook?.trim() || ''
+      });
+    });
+    
+    setColumnLineageData(columnLineageMap);
+    console.log(`Loaded column lineage for ${columnLineageMap.size} tables from ${selectedProduct.columnLineageFile}`);
+  }, [selectedProduct.columnLineageFile]);
 
   const processSchemaData = useCallback((data) => {
     const schemaMap = new Map();
@@ -307,9 +534,38 @@ const DataLineageViewer = () => {
 
   const filterByDatabase = useCallback((table) => {
     if (selectedDatabase === 'all') return true;
-    if (!table.database) return false;
-    return table.database === selectedDatabase;
-  }, [selectedDatabase]);
+    if (!table) return false;
+    
+    switch (filterMode) {
+      case 'destination':
+        // Only filter by destination table's database
+        return table.database === selectedDatabase;
+      
+      case 'source':
+        // Filter if any source belongs to selected database
+        if (table.sourceNames && table.sourceNames.length > 0) {
+          return table.sourceNames.some(sourceName => {
+            const sourceTable = lineageData?.tables.get(sourceName);
+            return sourceTable?.database === selectedDatabase;
+          });
+        }
+        return false;
+      
+      case 'both':
+        // Filter if destination OR any source belongs to selected database
+        if (table.database === selectedDatabase) return true;
+        if (table.sourceNames && table.sourceNames.length > 0) {
+          return table.sourceNames.some(sourceName => {
+            const sourceTable = lineageData?.tables.get(sourceName);
+            return sourceTable?.database === selectedDatabase;
+          });
+        }
+        return false;
+      
+      default:
+        return table.database === selectedDatabase;
+    }
+  }, [selectedDatabase, filterMode, lineageData]);
 
   const getFilteredDatabases = useMemo(() => {
     if (!databaseSearchTerm) return databases;
@@ -449,8 +705,30 @@ const DataLineageViewer = () => {
   // Memoized filtered roots
   const filteredRoots = useMemo(() => {
     if (!lineageData) return [];
+    
+    // When filterMode is 'source', show source tables instead of destination tables
+    if (filterMode === 'source' && selectedDatabase !== 'all') {
+      // Collect all unique source tables that belong to selected database
+      const sourceTables = new Set();
+      
+      lineageData.roots.forEach(root => {
+        const tableData = lineageData.tables.get(root.name);
+        if (tableData?.sourceNames) {
+          tableData.sourceNames.forEach(sourceName => {
+            const sourceTable = lineageData.tables.get(sourceName);
+            if (sourceTable?.database === selectedDatabase) {
+              sourceTables.add(sourceName);
+            }
+          });
+        }
+      });
+      
+      // Convert to array and return with consistent structure (same as roots)
+      return Array.from(sourceTables).map(name => ({ name }));
+    }
+    
     return lineageData.roots.filter(filterByDatabase);
-  }, [lineageData, filterByDatabase]);
+  }, [lineageData, filterByDatabase, filterMode, selectedDatabase]);
 
   // Memoized counts
   const { parquetCount, csvCount } = useMemo(() => {
@@ -465,19 +743,54 @@ const DataLineageViewer = () => {
   const renderNode = useCallback((tableName, level = 0, visited = new Set()) => {
     if (!lineageData || visited.has(tableName)) return null;
     
+    // Limit tree depth to MAX_TREE_LEVEL
+    if (level > MAX_TREE_LEVEL) return null;
+    
     const newVisited = new Set(visited);
     newVisited.add(tableName);
     
     const tableData = lineageData.tables.get(tableName);
     if (!tableData) return null;
     
-    if (!filterByDatabase(tableData)) return null;
+    // Skip filterByDatabase check when filterMode is 'source' at level 0 (already filtered in filteredRoots)
+    if (!(filterMode === 'source' && selectedDatabase !== 'all' && level === 0)) {
+      if (!filterByDatabase(tableData)) return null;
+    }
     
     const isExpanded = expandedNodes.has(tableName);
     const hasSources = tableData.sourceNames && tableData.sourceNames.length > 0;
     const hasSchema = schemaData.has(tableName);
-    const matchesSearch = !searchTerm || 
-      tableName.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    // Check if can expand (not at max level)
+    const canExpand = hasSources && level < MAX_TREE_LEVEL;
+    
+    // Enhanced search - check based on searchScope
+    const checkSearch = () => {
+      if (!searchTerm) return true;
+      const term = searchTerm.toLowerCase();
+      
+      switch (searchScope) {
+        case 'destination':
+          return tableName.toLowerCase().includes(term);
+        
+        case 'source':
+          // When filterMode is 'source', search in the source table names directly
+          return tableName.toLowerCase().includes(term);
+        
+        case 'all':
+        default:
+          // Match destination name OR any source name
+          if (tableName.toLowerCase().includes(term)) return true;
+          if (tableData.sourceNames && tableData.sourceNames.length > 0) {
+            return tableData.sourceNames.some(src => 
+              src.toLowerCase().includes(term)
+            );
+          }
+          return false;
+      }
+    };
+    
+    const matchesSearch = checkSearch();
 
     if (!matchesSearch && level === 0) return null;
 
@@ -492,10 +805,10 @@ const DataLineageViewer = () => {
           style={{ marginLeft: `${level * 24}px` }}
           onClick={() => {
             setSelectedTable(tableName);
-            if (hasSources) toggleNode(tableName);
+            if (canExpand) toggleNode(tableName);
           }}
         >
-          {hasSources && (
+          {canExpand && (
             <button className="flex-shrink-0">
               {isExpanded ? (
                 <ChevronDown className="w-4 h-4 text-gray-600" />
@@ -504,7 +817,7 @@ const DataLineageViewer = () => {
               )}
             </button>
           )}
-          {!hasSources && <div className="w-4" />}
+          {!canExpand && <div className="w-4" />}
           
           {getTypeIcon(tableData.type)}
           
@@ -528,30 +841,35 @@ const DataLineageViewer = () => {
                 <Info className={`w-3 h-3 ${hasSchema ? 'text-blue-500' : 'text-yellow-500'}`} />
               </button>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 mt-1">
               {tableData.notebooks && tableData.notebooks.length > 0 && (
-                <div className="text-xs text-gray-500 truncate">
-                  {tableData.notebooks[0]}
+                <div 
+                  className="text-xs text-gray-500 bg-gray-100 px-2 py-0.5 rounded cursor-help max-w-[200px] truncate"
+                  title={tableData.notebooks[0]}
+                >
+                  📓 {shortenPath(tableData.notebooks[0])}
                 </div>
               )}
-              <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded">
+              <span className="text-xs bg-gray-200 text-gray-700 px-2 py-0.5 rounded flex-shrink-0">
                 {tableData.database}
               </span>
             </div>
           </div>
           
-          <span className={`px-2 py-1 text-xs rounded border ${getTypeColor(tableData.type)}`}>
-            {tableData.type}
-          </span>
-          
-          {hasSources && (
-            <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
-              {tableData.sourceNames.length} sources
+          <div className="flex flex-col items-end gap-1 flex-shrink-0">
+            <span className={`px-2 py-1 text-xs rounded border ${getTypeColor(tableData.type)}`}>
+              {tableData.type}
             </span>
-          )}
+          
+            {hasSources && (
+              <span className="px-2 py-1 text-xs bg-gray-100 text-gray-600 rounded">
+                {tableData.sourceNames.length} sources
+              </span>
+            )}
+          </div>
         </div>
         
-        {isExpanded && hasSources && (
+        {isExpanded && canExpand && (
           <div className="mt-2">
             {tableData.sourceNames.map(sourceName => 
               renderNode(sourceName, level + 1, newVisited)
@@ -560,7 +878,7 @@ const DataLineageViewer = () => {
         )}
       </div>
     );
-  }, [lineageData, expandedNodes, schemaData, searchTerm, selectedTable, filterByDatabase, toggleNode, getTypeIcon, getTypeColor]);
+  }, [lineageData, expandedNodes, schemaData, searchTerm, selectedTable, filterByDatabase, toggleNode, getTypeIcon, getTypeColor, filterMode, selectedDatabase, searchScope]);
 
   // Optimized Flow View with pagination for large source lists
   const renderFlowView = useCallback(() => {
@@ -860,6 +1178,7 @@ const DataLineageViewer = () => {
         <TableSchemaModal
           table={selectedTableForSchema}
           schema={schemaData.get(selectedTableForSchema.name) || generateEmptySchema(selectedTableForSchema.name)}
+          columnLineage={columnLineageData.get(selectedTableForSchema.name) || []}
           onClose={() => setSelectedTableForSchema(null)}
           onSave={handleSaveSchema}
         />
@@ -948,10 +1267,72 @@ const DataLineageViewer = () => {
               <Download className="w-4 h-4" />
               Export JSON
             </button>
+            
+            {/* Transformation Guide Button */}
+            <button
+              onClick={() => setShowTransformLegend(true)}
+              className="flex items-center justify-center w-10 h-10 bg-amber-500 text-white rounded-full hover:bg-amber-600 transition-colors shadow-md"
+              title="Transformation Types Guide"
+            >
+              <HelpCircle className="w-5 h-5" />
+            </button>
           </div>
         </div>
 
-        {/* Product Info Banner */}
+        {/* Transformation Legend Modal */}
+        {showTransformLegend && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/50">
+            <div className="bg-white rounded-xl shadow-2xl w-[90%] max-w-4xl max-h-[85vh] overflow-hidden">
+              {/* Modal Header */}
+              <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-amber-500 to-orange-500 text-white">
+                <h3 className="text-lg font-bold flex items-center gap-2">
+                  <HelpCircle className="w-5 h-5" />
+                  Column Lineage - Transformation Types
+                </h3>
+                <button
+                  onClick={() => setShowTransformLegend(false)}
+                  className="p-1 hover:bg-white/20 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6" />
+                </button>
+              </div>
+              
+              {/* Modal Body */}
+              <div className="p-6 overflow-auto max-h-[calc(85vh-120px)]">
+                <p className="text-sm text-gray-600 mb-4">
+                  Giải thích ý nghĩa các loại transformation trong Column Lineage. Mỗi loại mô tả cách dữ liệu được chuyển đổi từ source column sang destination column.
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                  {Object.entries(TRANSFORMATION_TYPES_INFO).map(([type, info]) => (
+                    <div 
+                      key={type}
+                      className={`p-3 rounded-lg border-2 ${info.color}`}
+                    >
+                      <div className="flex items-center gap-2 mb-2">
+                        <span className="text-lg font-bold">{info.icon}</span>
+                        <span className="font-semibold">{info.label}</span>
+                        <span className="text-xs px-2 py-0.5 bg-white/50 rounded font-mono">{type}</span>
+                      </div>
+                      <p className="text-sm mb-2">{info.description}</p>
+                      {info.example && (
+                        <code className="text-xs bg-white/50 px-2 py-1 rounded block truncate font-mono" title={info.example}>
+                          {info.example}
+                        </code>
+                      )}
+                    </div>
+                  ))}
+                </div>
+                
+                <div className="mt-6 p-4 bg-blue-50 rounded-lg border border-blue-200">
+                  <p className="text-sm text-blue-800">
+                    <strong>💡 Tip:</strong> Click vào bảng bất kỳ trong Table Lineage, sau đó mở tab "Column Lineage" trong Schema Modal để xem chi tiết transformation của từng cột.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="mb-4 bg-indigo-50 border border-indigo-200 rounded-lg p-3 flex items-center gap-3">
           <Package className="w-5 h-5 text-indigo-600" />
           <span className="text-sm text-indigo-800">
@@ -963,100 +1344,156 @@ const DataLineageViewer = () => {
 
         {/* Database Filter */}
         <div className="mb-6 bg-white rounded-lg shadow p-4">
-          <div className="flex items-center gap-3">
-            <Filter className="w-5 h-5 text-gray-600" />
-            <label className="font-semibold text-gray-700">Filter by Database:</label>
-            
-            <div className="relative flex-1 max-w-md">
-              <div className="relative">
-                <input
-                  type="text"
-                  placeholder={selectedDatabase === 'all' ? 'All Databases' : selectedDatabase}
-                  value={databaseSearchTerm}
-                  onChange={(e) => {
-                    setDatabaseSearchTerm(e.target.value);
-                    setShowDatabaseDropdown(true);
-                  }}
-                  onFocus={() => setShowDatabaseDropdown(true)}
-                  className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
+          <div className="flex flex-col gap-3">
+            {/* Row 1: Database filter */}
+            <div className="flex items-center gap-3 flex-wrap">
+              <Filter className="w-5 h-5 text-gray-600" />
+              <label className="font-semibold text-gray-700">Filter by Database:</label>
+              
+              {/* Filter Mode Selector */}
+              <div className="flex items-center bg-gray-100 rounded-lg p-1">
                 <button
-                  onClick={() => setShowDatabaseDropdown(!showDatabaseDropdown)}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded transition-colors"
+                  onClick={() => setFilterMode('destination')}
+                  className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                    filterMode === 'destination' 
+                      ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  title="Filter tables where destination is in selected database"
                 >
-                  <ChevronDown className={`w-4 h-4 text-gray-600 transition-transform ${showDatabaseDropdown ? 'rotate-180' : ''}`} />
+                  Destination
+                </button>
+                <button
+                  onClick={() => setFilterMode('source')}
+                  className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                    filterMode === 'source' 
+                      ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  title="Filter tables that have sources from selected database"
+                >
+                  Source
+                </button>
+                <button
+                  onClick={() => setFilterMode('both')}
+                  className={`px-3 py-1 text-xs rounded-md transition-colors ${
+                    filterMode === 'both' 
+                      ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                      : 'text-gray-600 hover:text-gray-800'
+                  }`}
+                  title="Filter tables where destination OR source is in selected database"
+                >
+                  Both
                 </button>
               </div>
-
-              {showDatabaseDropdown && (
-                <>
-                  <div 
-                    className="fixed inset-0 z-10" 
-                    onClick={() => setShowDatabaseDropdown(false)}
+              
+              {/* Database Dropdown */}
+              <div className="relative flex-1 max-w-xs">
+                <div className="relative">
+                  <input
+                    type="text"
+                    placeholder={selectedDatabase === 'all' ? 'All Databases' : selectedDatabase}
+                    value={databaseSearchTerm}
+                    onChange={(e) => {
+                      setDatabaseSearchTerm(e.target.value);
+                      setShowDatabaseDropdown(true);
+                    }}
+                    onFocus={() => setShowDatabaseDropdown(true)}
+                    className="w-full px-4 py-2 pr-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-sm"
                   />
-                  
-                  <div className="absolute z-20 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
-                    {getFilteredDatabases.length > 0 ? (
-                      getFilteredDatabases.map(db => (
-                        <button
-                          key={db}
-                          onClick={() => handleDatabaseSelect(db)}
-                          className={`w-full px-4 py-2 text-left hover:bg-blue-50 transition-colors flex items-center justify-between ${
-                            selectedDatabase === db ? 'bg-blue-100 font-medium text-blue-700' : 'text-gray-700'
-                          }`}
-                        >
-                          <span>
-                            {db === 'all' ? (
-                              <span className="flex items-center gap-2">
-                                <Database className="w-4 h-4" />
-                                All Databases
-                              </span>
-                            ) : (
-                              <span className="flex items-center gap-2">
-                                <Database className="w-4 h-4 text-purple-500" />
-                                {db}
-                                <span className="text-xs text-gray-500">.db</span>
-                              </span>
+                  <button
+                    onClick={() => setShowDatabaseDropdown(!showDatabaseDropdown)}
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-1 hover:bg-gray-100 rounded transition-colors"
+                  >
+                    <ChevronDown className={`w-4 h-4 text-gray-600 transition-transform ${showDatabaseDropdown ? 'rotate-180' : ''}`} />
+                  </button>
+                </div>
+
+                {showDatabaseDropdown && (
+                  <>
+                    <div 
+                      className="fixed inset-0 z-10" 
+                      onClick={() => setShowDatabaseDropdown(false)}
+                    />
+                    
+                    <div className="absolute z-20 w-full mt-1 bg-white border border-gray-300 rounded-lg shadow-lg max-h-60 overflow-auto">
+                      {getFilteredDatabases.length > 0 ? (
+                        getFilteredDatabases.map(db => (
+                          <button
+                            key={db}
+                            onClick={() => handleDatabaseSelect(db)}
+                            className={`w-full px-4 py-2 text-left hover:bg-blue-50 transition-colors flex items-center justify-between ${
+                              selectedDatabase === db ? 'bg-blue-100 font-medium text-blue-700' : 'text-gray-700'
+                            }`}
+                          >
+                            <span>
+                              {db === 'all' ? (
+                                <span className="flex items-center gap-2">
+                                  <Database className="w-4 h-4" />
+                                  All Databases
+                                </span>
+                              ) : (
+                                <span className="flex items-center gap-2">
+                                  <Database className="w-4 h-4 text-purple-500" />
+                                  {db}
+                                  <span className="text-xs text-gray-500">.db</span>
+                                </span>
+                              )}
+                            </span>
+                            {selectedDatabase === db && (
+                              <span className="text-blue-600">✓</span>
                             )}
-                          </span>
-                          {selectedDatabase === db && (
-                            <span className="text-blue-600">✓</span>
-                          )}
-                        </button>
-                      ))
-                    ) : (
-                      <div className="px-4 py-3 text-center text-gray-500 text-sm">
-                        No databases found matching "{databaseSearchTerm}"
-                      </div>
-                    )}
-                  </div>
-                </>
+                          </button>
+                        ))
+                      ) : (
+                        <div className="px-4 py-3 text-center text-gray-500 text-sm">
+                          No databases found matching "{databaseSearchTerm}"
+                        </div>
+                      )}
+                    </div>
+                  </>
+                )}
+              </div>
+
+              {selectedDatabase !== 'all' && (
+                <button
+                  onClick={() => {
+                    setSelectedDatabase('all');
+                    setDatabaseSearchTerm('');
+                  }}
+                  className="px-3 py-2 text-sm bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
+                >
+                  Clear
+                </button>
+              )}
+
+              {selectedDatabase !== 'all' && (
+                <span className="text-sm text-gray-600 flex items-center gap-1">
+                  <span className="font-medium">{filteredRoots.length}</span> tables
+                </span>
+              )}
+              
+              {schemaData.size > 0 && (
+                <span className="ml-auto text-sm text-green-600 flex items-center gap-1">
+                  <Info className="w-4 h-4" />
+                  {schemaData.size} with schema
+                </span>
               )}
             </div>
-
-            {selectedDatabase !== 'all' && (
-              <button
-                onClick={() => {
-                  setSelectedDatabase('all');
-                  setDatabaseSearchTerm('');
-                }}
-                className="px-3 py-2 text-sm bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors"
-              >
-                Clear Filter
-              </button>
-            )}
-
-            {selectedDatabase !== 'all' && (
-              <span className="text-sm text-gray-600 flex items-center gap-1">
-                <span className="font-medium">{filteredRoots.length}</span> tables
-              </span>
-            )}
             
-            {schemaData.size > 0 && (
-              <span className="ml-auto text-sm text-green-600 flex items-center gap-1">
-                <Info className="w-4 h-4" />
-                {schemaData.size} with schema
-              </span>
+            {/* Filter mode description */}
+            {selectedDatabase !== 'all' && (
+              <div className="text-xs text-gray-500 ml-8">
+                {filterMode === 'destination' && (
+                  <span>📍 Showing tables where <strong>destination</strong> is in <strong>{selectedDatabase}.db</strong></span>
+                )}
+                {filterMode === 'source' && (
+                  <span>📍 Showing <strong>source tables</strong> in <strong>{selectedDatabase}.db</strong></span>
+                )}
+                {filterMode === 'both' && (
+                  <span>📍 Showing tables where <strong>destination OR sources</strong> are in <strong>{selectedDatabase}.db</strong></span>
+                )}
+              </div>
             )}
           </div>
         </div>
@@ -1064,14 +1501,76 @@ const DataLineageViewer = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="bg-white rounded-xl shadow-lg p-6">
             <div className="mb-4">
-              <h2 className="text-xl font-bold text-gray-800 mb-3">Table Lineage</h2>
-              <input
-                type="text"
-                placeholder="Search tables..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
+              <div className="flex items-center justify-between mb-3">
+                <h2 className="text-xl font-bold text-gray-800">Table Lineage</h2>
+                
+                {/* Search Scope Selector */}
+                <div className="flex items-center bg-gray-100 rounded-lg p-1">
+                  <button
+                    onClick={() => setSearchScope('all')}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                      searchScope === 'all' 
+                        ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                        : 'text-gray-600 hover:text-gray-800'
+                    }`}
+                    title="Search in all table names"
+                  >
+                    All
+                  </button>
+                  <button
+                    onClick={() => setSearchScope('destination')}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                      searchScope === 'destination' 
+                        ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                        : 'text-gray-600 hover:text-gray-800'
+                    }`}
+                    title="Search only in destination table names"
+                  >
+                    Dest
+                  </button>
+                  <button
+                    onClick={() => setSearchScope('source')}
+                    className={`px-2 py-1 text-xs rounded-md transition-colors ${
+                      searchScope === 'source' 
+                        ? 'bg-white text-blue-700 shadow-sm font-medium' 
+                        : 'text-gray-600 hover:text-gray-800'
+                    }`}
+                    title="Search only in source table names"
+                  >
+                    Source
+                  </button>
+                </div>
+              </div>
+              
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder={
+                    searchScope === 'all' ? "Search all tables..." :
+                    searchScope === 'destination' ? "Search destination tables..." :
+                    "Search in source tables..."
+                  }
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                />
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm('')}
+                    className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                  >
+                    ✕
+                  </button>
+                )}
+              </div>
+              
+              {searchTerm && (
+                <div className="text-xs text-gray-500 mt-2">
+                  {searchScope === 'all' && <span>🔍 Searching in destination AND source table names</span>}
+                  {searchScope === 'destination' && <span>🔍 Searching only in destination table names</span>}
+                  {searchScope === 'source' && <span>🔍 Searching tables that have matching source names</span>}
+                </div>
+              )}
             </div>
             
             <div className="overflow-auto max-h-[600px]">
@@ -1108,7 +1607,9 @@ const DataLineageViewer = () => {
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="text-2xl font-bold text-purple-600">{filteredRoots.length}</div>
-            <div className="text-sm text-gray-600">Destination Tables</div>
+            <div className="text-sm text-gray-600">
+              {filterMode === 'source' && selectedDatabase !== 'all' ? 'Source Tables' : 'Destination Tables'}
+            </div>
           </div>
           <div className="bg-white rounded-lg shadow p-4">
             <div className="text-2xl font-bold text-green-600">{parquetCount}</div>

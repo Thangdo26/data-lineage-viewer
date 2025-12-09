@@ -182,9 +182,6 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_sme_final.ipynb,dim_sme (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_sme_final.ipynb,contract_details (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_sme_final.ipynb,product_info (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_TESTTTT.ipynb,stg_tracking_performance (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_TESTTTT.ipynb,contract_details (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_TESTTTT.ipynb,product_info (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_daily.ipynb,stg_tracking_performance (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_daily.ipynb,contract_details (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/dop/tracking_performance/Tracking_performance_daily.ipynb,product_info (dlc_data.db),PARQUET,,
@@ -412,7 +409,7 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/grab/grab_risk_by_demographic_init.ipynb,contract_vc (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/grab/grab_risk_by_demographic_init.ipynb,contract_manual_delete (dlc_data.db),CSV,,
 /home/jupyter/notebook.home/etl_data/grab/grab_approval_detail.ipynb,grab_log_step (dlc_data.db),PARQUET,grab_approval_detail (dlc_data.db),PARQUET
-/home/jupyter/notebook.home/etl_data/grab/grab_approval_detail.ipynb,orderloan (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/grab/grab_approval_detail.ipynb,orderloan_final (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/grab/grab_approval_detail_init.ipynb,grab_log_step (dlc_data.db),PARQUET,grab_approval_detail (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/grab/grab_approval_detail_init.ipynb,orderloan (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/grab/dm_autohold_overdue.ipynb,daily_payback (vc_fi_data.db),PARQUET,grab_daily_payback (dlc_data.db),PARQUET
@@ -512,9 +509,9 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/disbursement/collection_history_init.ipynb,collection_history (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_history_init.ipynb,repayment_current_by_due_number (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,collection_current (dlc_data.db),PARQUET,collection_payment_data (dlc_data.db),CSV
+/home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,stg_tracking_performance (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,product_info (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,contract_dim (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,contract (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,repayment_current_by_due_number (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,contract_payback (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/collection_payment_data_daily.ipynb,contract_vc (dlc_data.db),PARQUET,,
@@ -821,6 +818,14 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/disbursement/momo/dm_package_pnl_vintage_by_mob_disbursed_month.ipynb,mob_by_update_last_date (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/momo/dm_package_pnl_vintage_by_mob_disbursed_month.ipynb,dim_factor_3_column_vintage (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/momo/dm_package_pnl_vintage_by_mob_disbursed_month.ipynb,pnl_vintage_disbursed_month (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,score_info (dlc_data.db),PARQUET,pnl_vintage_v2 (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,contract_details (dlc_data.db),PARQUET,dm_package_pnl_vintage_v2 (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,orderloan_final (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,dim_package (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,contract_package (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,mob_by_update_last_date (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,dim_factor_3_column_vintage (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/disbursement/momo/v2_dm_package_pnl_vintage_by_mob.ipynb,pnl_vintage_v2 (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/outstanding_debt/outstanding_debt_report.ipynb,contract_vc (dlc_data.db),PARQUET,outstanding_debt_report (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/disbursement/outstanding_debt/outstanding_debt_report.ipynb,balance_vc (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/disbursement/outstanding_debt/outstanding_debt_report.ipynb,contract_details (dlc_data.db),PARQUET,,
@@ -961,7 +966,8 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,orderloan_taxcode (dlc_data.db),PARQUET,stg_sme_tracking_performance (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,stg_dim_sme (dlc_data.db),PARQUET,dm_sme_los (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,region_province (dlc_data.db),CSV,sme_contract_orderloan (dlc_data.db),PARQUET
-/home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,dim_sme (dlc_data.db),PARQUET,dm_sme_los_lms (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,business_code (dlc_data.db),CSV,dm_sme_los_lms (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,dim_sme (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/sme/dim_sme.ipynb,product_info (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/sme/dm_sme_risk.ipynb,stg_sme_tracking_performance (dlc_data.db),PARQUET,dm_sme_risk_overall (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/sme/dm_sme_risk.ipynb,dm_key_risk_indicators_ever (dlc_data.db),PARQUET,dm_sme_risk_detail (dlc_data.db),PARQUET
@@ -986,6 +992,7 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/sme/dm_sme_npl_init.ipynb,ods_dw_loan_provision_fct (vc_risk.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/sme/dim_sme_add_region.ipynb,stg_dim_sme (dlc_data.db),PARQUET,dim_sme (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/sme/dim_sme_add_region.ipynb,region_province (dlc_data.db),CSV,,
+/home/jupyter/notebook.home/etl_data/sme/dim_sme_add_region.ipynb,business_code (dlc_data.db),CSV,,
 /home/jupyter/notebook.home/etl_data/fraud/dm_customer_fraud.ipynb,dop_customer_loan (dlc_data.db),PARQUET,dm_customer_fraud (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/fraud/dm_customer_fraud.ipynb,dop_customer (dlc_data.db),PARQUET,fact_risk_fraud_rule (dlc_data.db),PARQUET
 /home/jupyter/notebook.home/etl_data/fraud/dm_customer_fraud.ipynb,dop_customer_by_partner (dlc_data.db),PARQUET,dm_risk_fraud_rule (dlc_data.db),PARQUET
@@ -1017,12 +1024,10 @@ notebook_name,source_table,source_type,destination_table,destination_type
 /home/jupyter/notebook.home/etl_data/fraud/fact_customer_fraud_init.ipynb,dop_customer_log_step_by_partner (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/fraud/fact_customer_fraud_init.ipynb,dop_log_ip_customer (dlc_data.db),PARQUET,,
 /home/jupyter/notebook.home/etl_data/fraud/fact_customer_fraud_init.ipynb,customer_location (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_daily.ipynb,dim_step_description (dlc_data.db),PARQUET,fact_time_onboarding (dlc_data.db),PARQUET
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_daily.ipynb,orderloan_final (dlc_data.db),PARQUET,stg_time_onboarding (dlc_data.db),PARQUET
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_daily.ipynb,stg_time_onboarding (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_daily.ipynb,fact_time_onboarding (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_init.ipynb,dop_customer_log_step_by_partner (dlc_data.db),PARQUET,stg_time_onboarding (dlc_data.db),PARQUET
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_init.ipynb,dop_customer_log_step_by_partner (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_init.ipynb,dim_step_description (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_init.ipynb,dop_customer_log_step (dlc_data.db),PARQUET,,
-/home/jupyter/notebook.home/etl_data/fraud/stg_time_onboarding_init.ipynb,orderloan_final (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_daily.ipynb,dim_step_description (dlc_data.db),PARQUET,fact_time_onboarding (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_daily.ipynb,orderloan_final (dlc_data.db),PARQUET,stg_time_onboarding (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_daily.ipynb,stg_time_onboarding (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_daily.ipynb,fact_time_onboarding (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_init.ipynb,dim_step_description (dlc_data.db),PARQUET,stg_time_onboarding (dlc_data.db),PARQUET
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_init.ipynb,dop_customer_log_step (dlc_data.db),PARQUET,,
+/home/jupyter/notebook.home/etl_data/fraud/fact_time_onboarding_init.ipynb,orderloan_final (dlc_data.db),PARQUET,,
